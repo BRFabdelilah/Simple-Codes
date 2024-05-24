@@ -1,8 +1,8 @@
-HI 
-جميع المناطق والأقاليم والبلديات المغرب
+HI DEV MA 
 
-tout les régions et province et communes maroc /n
-all regions and provinces and municipalities Morocco /n
+
+tout les régions et province et communes maroc 
+all regions and provinces and municipalities Morocco 
 
 
  جميع المناطق والأقاليم والبلديات المغرب
