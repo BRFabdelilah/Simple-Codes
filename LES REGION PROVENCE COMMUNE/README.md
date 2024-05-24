@@ -1,5 +1,8 @@
-HI DEVS
-tout les régions et province et communes maroc /n
-all regions and provinces and municipalities Morocco /n
- /n 
+HI DEV MA 
+
+
+tout les régions et province et communes maroc 
+all regions and provinces and municipalities Morocco 
+
+
  جميع المناطق والأقاليم والبلديات المغرب
