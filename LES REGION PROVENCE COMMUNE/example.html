@@ -1,0 +1,5076 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Sélection de Région, Province et Commune</title>
+
+<script>
+// Supposons que le fichier JSON est chargé dans cette variable
+var jsonData = {
+    "REGION": [
+        {
+            "name": "Rabat-Salé-Kénitra",
+            "PROVINCE": [
+                {
+                    "name": "Préfecture: Rabat",
+                    "COMMUNE": [
+                        {
+                            "name": "Agdal Riyad (Arrond.)"
+                        },
+                        {
+                            "name": "Hassan (Arrond.)"
+                        },
+                        {
+                            "name": "Souissi (Arrond.)"
+                        },
+                        {
+                            "name": "El Youssoufia (Arrond.)"
+                        },
+                        {
+                            "name": "Yacoub El Mansour (Arrond.)"
+                        },
+                        {
+                            "name": "Touarga (Mun.)"
+                        }
+                    ]
+                },
+                {
+                    "name": "Préfecture: Skhirate- Tém",
+                    "COMMUNE": [
+                        {
+                            "name": "Témara (Mun.)"
+                        },
+                        {
+                            "name": "Harhoura (Mun.)"
+                        },
+                        {
+                            "name": "Skhirate (Mun.)"
+                        },
+                        {
+                            "name": "Ain El Aouda (Mun.)"
+                        },
+                        {
+                            "name": "Mers El Kheir"
+                        },
+                        {
+                            "name": "Ain Attig (Mun.)"
+                        },
+                        {
+                            "name": "El Menzeh"
+                        },
+                        {
+                            "name": "Sidi Yahya Zaer"
+                        },
+                        {
+                            "name": "Sabbah"
+                        },
+                        {
+                            "name": "Oumazza"
+                        }
+                    ]
+                },
+                {
+                    "name": "Préfecture: Salé",
+                    "COMMUNE": [
+                        {
+                            "name": "Bettana (Arrond.)"
+                        },
+                        {
+                            "name": "Bab Lamrissa (Arrond.)"
+                        },
+                        {
+                            "name": "Tabriquet (Arrond.)"
+                        },
+                        {
+                            "name": "Layayda (Arrond.)"
+                        },
+                        {
+                            "name": "Hssaine (Arrond.)"
+                        },
+                        {
+                            "name": "Shoul"
+                        },
+                        {
+                            "name": "Ameur"
+                        },
+                        {
+                            "name": "Sidi Bouknadel (Mun.)"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Kénitra",
+                    "COMMUNE": [
+                        {
+                            "name": "Kénitra (Mun.)"
+                        },
+                        {
+                            "name": "Souk El Arbaa (Mun.)"
+                        },
+                        {
+                            "name": "Haddada"
+                        },
+                        {
+                            "name": "Sidi Allal Tazi"
+                        },
+                        {
+                            "name": "Mehdya (Mun.)"
+                        },
+                        {
+                            "name": "Mnasra"
+                        },
+                        {
+                            "name": "Ben Mansour"
+                        },
+                        {
+                            "name": "Sidi Mohamed Ben Mansour"
+                        },
+                        {
+                            "name": "Sidi Taibi"
+                        },
+                        {
+                            "name": "Ameur Seflia"
+                        },
+                        {
+                            "name": "Ouled Slama"
+                        },
+                        {
+                            "name": "Mograne"
+                        },
+                        {
+                            "name": "Arbaoua"
+                        },
+                        {
+                            "name": "Oued El Makhazine"
+                        },
+                        {
+                            "name": "Kariat Ben Aouda"
+                        },
+                        {
+                            "name": "Beni Malek"
+                        },
+                        {
+                            "name": "Souk Tlet El Gharb"
+                        },
+                        {
+                            "name": "Bahhara Ouled Ayad"
+                        },
+                        {
+                            "name": "Sidi Mohamed Lahmar"
+                        },
+                        {
+                            "name": "Moulay Bousselham"
+                        },
+                        {
+                            "name": "Lalla Mimouna"
+                        },
+                        {
+                            "name": "Chouafaa"
+                        },
+                        {
+                            "name": "Sidi Boubker El Haj"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Sidi Slimane",
+                    "COMMUNE": [
+                        {
+                            "name": "Sidi Slimane (Mun.)"
+                        },
+                        {
+                            "name": "Sidi Yahya El Gharb (Mun.)"
+                        },
+                        {
+                            "name": "Dar Bel Amri"
+                        },
+                        {
+                            "name": "Ameur Chamalia"
+                        },
+                        {
+                            "name": "Ouled Ben Hammadi"
+                        },
+                        {
+                            "name": "Boumaiz"
+                        },
+                        {
+                            "name": "Sfafaa"
+                        },
+                        {
+                            "name": "Kceibya"
+                        },
+                        {
+                            "name": "Azghar"
+                        },
+                        {
+                            "name": "M'saada"
+                        },
+                        {
+                            "name": "Ouled H'Cine"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Khémisset",
+                    "COMMUNE": [
+                        {
+                            "name": "Khémisset (Mun.)"
+                        },
+                        {
+                            "name": "Rommani (Mun.)"
+                        },
+                        {
+                            "name": "Tiflet (Mun.)"
+                        },
+                        {
+                            "name": "Sidi Allal El Bahraoui (Mun.)"
+                        },
+                        {
+                            "name": "Maaziz"
+                        },
+                        {
+                            "name": "Oulmes"
+                        },
+                        {
+                            "name": "Tiddas"
+                        },
+                        {
+                            "name": "Ait Siberne"
+                        },
+                        {
+                            "name": "Ait Mimoune"
+                        },
+                        {
+                            "name": "Ait Ouribel"
+                        },
+                        {
+                            "name": "Majmaa Tolba"
+                        },
+                        {
+                            "name": "El Ganzra"
+                        },
+                        {
+                            "name": "Ait Yadine"
+                        },
+                        {
+                            "name": "Sfassif"
+                        },
+                        {
+                            "name": "Sidi Allal Lamsadder"
+                        },
+                        {
+                            "name": "Sidi El Ghandour"
+                        },
+                        {
+                            "name": "Houderrane"
+                        },
+                        {
+                            "name": "Ait Ikkou"
+                        },
+                        {
+                            "name": "Bouqachmir"
+                        },
+                        {
+                            "name": "Ait Ichou"
+                        },
+                        {
+                            "name": "Brachoua"
+                        },
+                        {
+                            "name": "Moulay Driss Aghbal"
+                        },
+                        {
+                            "name": "Jemaat Moul Blad"
+                        },
+                        {
+                            "name": "Laghoualem"
+                        },
+                        {
+                            "name": "Marchouch"
+                        },
+                        {
+                            "name": "Ain Sbit"
+                        },
+                        {
+                            "name": "Ezzhiliga"
+                        },
+                        {
+                            "name": "M'qam Tolba"
+                        },
+                        {
+                            "name": "Sidi Abderrazak"
+                        },
+                        {
+                            "name": "Ait Malek"
+                        },
+                        {
+                            "name": "Ait Ali ou Lahcen"
+                        },
+                        {
+                            "name": "Ain Johra -Sidi Boukhalkhal"
+                        },
+                        {
+                            "name": "Ait Belkacem"
+                        },
+                        {
+                            "name": "Khemis Sidi Yahya"
+                        },
+                        {
+                            "name": "Ait Buyahya El Hajjama"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Sidi Kacem",
+                    "COMMUNE": [
+                        {
+                            "name": "Sidi Kacem (Mun.)"
+                        },
+                        {
+                            "name": "Mechraa Bel Ksiri (Mun.)"
+                        },
+                        {
+                            "name": "Had Kourt (Mun.)"
+                        },
+                        {
+                            "name": "Jorf El Melha (Mun.)"
+                        },
+                        {
+                            "name": "Dar Gueddari (Mun.)"
+                        },
+                        {
+                            "name": "Bni Oual"
+                        },
+                        {
+                            "name": "Ain Dfali"
+                        },
+                        {
+                            "name": "Moulay Abdelkader"
+                        },
+                        {
+                            "name": "Sidi Azzouz"
+                        },
+                        {
+                            "name": "Sidi Ahmed Benaissa"
+                        },
+                        {
+                            "name": "Sidi Ameur Al Hadi"
+                        },
+                        {
+                            "name": "Lamrabih"
+                        },
+                        {
+                            "name": "Sidi M'Hamed Chelh"
+                        },
+                        {
+                            "name": "Oulad Nouel"
+                        },
+                        {
+                            "name": "Taoughilt"
+                        },
+                        {
+                            "name": "Khnichet"
+                        },
+                        {
+                            "name": "Nouirate"
+                        },
+                        {
+                            "name": "Sidi Al Kamel"
+                        },
+                        {
+                            "name": "Rmilat"
+                        },
+                        {
+                            "name": "Al Haouafate"
+                        },
+                        {
+                            "name": "Sefsaf"
+                        },
+                        {
+                            "name": "Dar Laaslouji"
+                        },
+                        {
+                            "name": "Bab Tiouka"
+                        },
+                        {
+                            "name": "Zirara"
+                        },
+                        {
+                            "name": "Zaggota"
+                        },
+                        {
+                            "name": "Selfat"
+                        },
+                        {
+                            "name": "Tekna"
+                        },
+                        {
+                            "name": "Bir Taleb"
+                        },
+                        {
+                            "name": "Chbanate"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Grand Casablanca-Settat",
+            "PROVINCE": [
+                {
+                    "name": "Préf. d’Arr. Casabl",
+                    "COMMUNE": [
+                        {
+                            "name": "Sidi Belyout (Arrond.)"
+                        },
+                        {
+                            "name": "Anfa (Arrond.)"
+                        },
+                        {
+                            "name": "El Maarif (Arrond.)"
+                        }
+                    ]
+                },
+                {
+                    "name": "Préf. d’Arr. Al Fida",
+                    "COMMUNE": [
+                        {
+                            "name": "Al-Fida (Arrond.)"
+                        },
+                        {
+                            "name": "Mers-Sultan (Arrond.)"
+                        }
+                    ]
+                },
+                {
+                    "name": "Préf. d’Arr. Aïn Sebaa",
+                    "COMMUNE": [
+                        {
+                            "name": "Hay Mohammadi (Arrond.)"
+                        },
+                        {
+                            "name": "Assoukhour Assawda (Arrond.)"
+                        },
+                        {
+                            "name": "Aîn-Sebaâ (Arrond.)"
+                        }
+                    ]
+                },
+                {
+                    "name": "Préf. d’Arr. Sidi Bernous",
+                    "COMMUNE": [
+                        {
+                            "name": "Sidi Moumen (Arrond.)"
+                        },
+                        {
+                            "name": "Sidi Bernoussi (Arrond.)"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Médiouna",
+                    "COMMUNE": [
+                        {
+                            "name": "Tit Mellil (Mun.)"
+                        },
+                        {
+                            "name": "Lahraouyine (Mun.)"
+                        },
+                        {
+                            "name": "Sidi Hajjaj Oued Hassar"
+                        },
+                        {
+                            "name": "Mediouna (Mun.)"
+                        },
+                        {
+                            "name": "Al Majjatia Oulad Taleb"
+                        }
+                    ]
+                },
+                {
+                    "name": "Préfecture: Mohammadia",
+                    "COMMUNE": [
+                        {
+                            "name": "Ain Harrouda (Mun.)"
+                        },
+                        {
+                            "name": "Ech-challalate"
+                        },
+                        {
+                            "name": "Bni Yakhlef"
+                        },
+                        {
+                            "name": "Mohammadia (Mun.)"
+                        },
+                        {
+                            "name": "Sidi Moussa Ben Ali"
+                        },
+                        {
+                            "name": "Sidi Moussa Majdoub"
+                        }
+                    ]
+                },
+                {
+                    "name": "Préf. d’Arr. Moulay R'chi",
+                    "COMMUNE": [
+                        {
+                            "name": "Sidi Othmane (Arrond.)"
+                        },
+                        {
+                            "name": "Moulay Rachid (Arrond.)"
+                        }
+                    ]
+                },
+                {
+                    "name": "Préf. d’Arr. Ben M’sik",
+                    "COMMUNE": [
+                        {
+                            "name": "Sbata (Arrond.)"
+                        },
+                        {
+                            "name": "Ben M'Sick (Arrond.)"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Benslimane",
+                    "COMMUNE": [
+                        {
+                            "name": "Benslimane (Mun.)"
+                        },
+                        {
+                            "name": "Bouznika (Mun.)"
+                        },
+                        {
+                            "name": "Ziaida"
+                        },
+                        {
+                            "name": "Fdalate"
+                        },
+                        {
+                            "name": "Oulad Yahya Louta"
+                        },
+                        {
+                            "name": "Moualine El Oued"
+                        },
+                        {
+                            "name": "Ahlaf"
+                        },
+                        {
+                            "name": "Mellila"
+                        },
+                        {
+                            "name": "Oulad Ali Toualaa"
+                        },
+                        {
+                            "name": "Rdadna Oulad Malek"
+                        },
+                        {
+                            "name": "Ain Tizgha"
+                        },
+                        {
+                            "name": "Charrate"
+                        },
+                        {
+                            "name": "Sidi Bettache"
+                        },
+                        {
+                            "name": "El Mansouria (Mun.)"
+                        },
+                        {
+                            "name": "Bir Ennasr"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: El Jadida",
+                    "COMMUNE": [
+                        {
+                            "name": "Azemmour (Mun.)"
+                        },
+                        {
+                            "name": "El Jadida (Mun.)"
+                        },
+                        {
+                            "name": "Lbir Jdid (Mun.)"
+                        },
+                        {
+                            "name": "Haouzia"
+                        },
+                        {
+                            "name": "My Abdellah"
+                        },
+                        {
+                            "name": "Ouled Frej"
+                        },
+                        {
+                            "name": "Mettouh"
+                        },
+                        {
+                            "name": "Sidi Smail"
+                        },
+                        {
+                            "name": "Lamharza Essahel"
+                        },
+                        {
+                            "name": "Laghdira"
+                        },
+                        {
+                            "name": "Sidi Ali Ben Hamdouche"
+                        },
+                        {
+                            "name": "Chtouka"
+                        },
+                        {
+                            "name": "Oulad Rahmoune"
+                        },
+                        {
+                            "name": "Ouled Hcine"
+                        },
+                        {
+                            "name": "Sidi Abed"
+                        },
+                        {
+                            "name": "Oulad Aissa"
+                        },
+                        {
+                            "name": "Sidi M'Hamed Akhdim"
+                        },
+                        {
+                            "name": "Ouled Ghanem"
+                        },
+                        {
+                            "name": "Oulad Sidi Ali Ben Youssef"
+                        },
+                        {
+                            "name": "Si Hsaien Ben Abderrahmane"
+                        },
+                        {
+                            "name": "Zaouiat Lakouacem"
+                        },
+                        {
+                            "name": "Chaibate"
+                        },
+                        {
+                            "name": "Oulad Hamdane"
+                        },
+                        {
+                            "name": "Boulaouane"
+                        },
+                        {
+                            "name": "Sebt Saiss"
+                        },
+                        {
+                            "name": "Zaouiat Saiss"
+                        },
+                        {
+                            "name": "Mogress"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Sidi Bennour",
+                    "COMMUNE": [
+                        {
+                            "name": "Sidi Bennour (Mun.)"
+                        },
+                        {
+                            "name": "Zemamra (Mun.)"
+                        },
+                        {
+                            "name": "Laaounate"
+                        },
+                        {
+                            "name": "Loualidia"
+                        },
+                        {
+                            "name": "Lgharbia"
+                        },
+                        {
+                            "name": "Lmechrek"
+                        },
+                        {
+                            "name": "Oulad Si Bouhya"
+                        },
+                        {
+                            "name": "Laamria"
+                        },
+                        {
+                            "name": "Bni Hilal"
+                        },
+                        {
+                            "name": "Bni Tsiriss"
+                        },
+                        {
+                            "name": "Oulad Boussaken"
+                        },
+                        {
+                            "name": "Khmis Ksiba"
+                        },
+                        {
+                            "name": "Metrane"
+                        },
+                        {
+                            "name": "Kridid"
+                        },
+                        {
+                            "name": "Laagagcha"
+                        },
+                        {
+                            "name": "Koudiat Bni Dghough"
+                        },
+                        {
+                            "name": "Tamda"
+                        },
+                        {
+                            "name": "Oulad Amrane"
+                        },
+                        {
+                            "name": "Laatatra"
+                        },
+                        {
+                            "name": "Bouhmame"
+                        },
+                        {
+                            "name": "Jabria"
+                        },
+                        {
+                            "name": "M'Tal"
+                        },
+                        {
+                            "name": "Oulad Sbaita"
+                        },
+                        {
+                            "name": "Laghnadra"
+                        },
+                        {
+                            "name": "Saniat Berguig"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Settat",
+                    "COMMUNE": [
+                        {
+                            "name": "Settat (Mun.)"
+                        },
+                        {
+                            "name": "Ben Ahmed (Mun.)"
+                        },
+                        {
+                            "name": "Loulad (Mun.)"
+                        },
+                        {
+                            "name": "Oulad M'Rah (Mun.)"
+                        },
+                        {
+                            "name": "El Borouj (Mun.)"
+                        },
+                        {
+                            "name": "Sidi Hajjaj"
+                        },
+                        {
+                            "name": "Ras El Ain Chaouia"
+                        },
+                        {
+                            "name": "Bni Khloug"
+                        },
+                        {
+                            "name": "Mzamza Janoubia"
+                        },
+                        {
+                            "name": "Oulad Sghir"
+                        },
+                        {
+                            "name": "Khemisset Chaouia"
+                        },
+                        {
+                            "name": "Oulad Said"
+                        },
+                        {
+                            "name": "N'Khila"
+                        },
+                        {
+                            "name": "Lakhzazra"
+                        },
+                        {
+                            "name": "M'Garto"
+                        },
+                        {
+                            "name": "Sidi Dahbi"
+                        },
+                        {
+                            "name": "Oulad M'Hamed"
+                        },
+                        {
+                            "name": "Ain Dorbane-Lahlaf"
+                        },
+                        {
+                            "name": "Bouguargouh"
+                        },
+                        {
+                            "name": "Sidi Abdelkrim"
+                        },
+                        {
+                            "name": "Mrizigue"
+                        },
+                        {
+                            "name": "Mniaa"
+                        },
+                        {
+                            "name": "Sgamna"
+                        },
+                        {
+                            "name": "Oulad Fares"
+                        },
+                        {
+                            "name": "Oulad Chbana"
+                        },
+                        {
+                            "name": "Oued Naanaa"
+                        },
+                        {
+                            "name": "Oulad Fares El Halla"
+                        },
+                        {
+                            "name": "Oulad Bouali Nouaja"
+                        },
+                        {
+                            "name": "Meskoura"
+                        },
+                        {
+                            "name": "Oulad Amer"
+                        },
+                        {
+                            "name": "Laqraqra"
+                        },
+                        {
+                            "name": "Sidi Boumehdi"
+                        },
+                        {
+                            "name": "Sidi Ahmed El Khadir"
+                        },
+                        {
+                            "name": "Dar Chaffai"
+                        },
+                        {
+                            "name": "Ain Blal"
+                        },
+                        {
+                            "name": "Oulad Freiha"
+                        },
+                        {
+                            "name": "Sidi El Aidi"
+                        },
+                        {
+                            "name": "Bni Yagrine"
+                        },
+                        {
+                            "name": "Guisser"
+                        },
+                        {
+                            "name": "Rima"
+                        },
+                        {
+                            "name": "Machraa Ben Abbou"
+                        },
+                        {
+                            "name": "Sidi Mohammed Ben Rahal"
+                        },
+                        {
+                            "name": "Toualet"
+                        },
+                        {
+                            "name": "Mzoura"
+                        },
+                        {
+                            "name": "Gdana"
+                        },
+                        {
+                            "name": "Lahouaza"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Berrechid",
+                    "COMMUNE": [
+                        {
+                            "name": "Berrechid (Mun.)"
+                        },
+                        {
+                            "name": "El Gara (Mun.)"
+                        },
+                        {
+                            "name": "Oulad Abbou (Mun.)"
+                        },
+                        {
+                            "name": "Deroua (Mun.)"
+                        },
+                        {
+                            "name": "Had Soualem (Mun.)"
+                        },
+                        {
+                            "name": "Lahsasna"
+                        },
+                        {
+                            "name": "Sidi El Mekki"
+                        },
+                        {
+                            "name": "Ouled Cebbah"
+                        },
+                        {
+                            "name": "Ouled Zidane"
+                        },
+                        {
+                            "name": "Zaouiat Sidi Ben Hamdoun"
+                        },
+                        {
+                            "name": "Laghnimyine"
+                        },
+                        {
+                            "name": "Ben Maachou"
+                        },
+                        {
+                            "name": "Sidi Abdelkhaleq"
+                        },
+                        {
+                            "name": "Oulad Ziyane"
+                        },
+                        {
+                            "name": "Kasbat Ben Mchich"
+                        },
+                        {
+                            "name": "Jaqma"
+                        },
+                        {
+                            "name": "Lambarkiyine"
+                        },
+                        {
+                            "name": "Riah"
+                        },
+                        {
+                            "name": "Foqra Oulad Aameur"
+                        },
+                        {
+                            "name": "Sahel Oulad H'Riz"
+                        },
+                        {
+                            "name": "Soualem Trifiya"
+                        },
+                        {
+                            "name": "Sidi Rahal Chatai (Mun.)"
+                        }
+                    ]
+                },
+                {
+                    "name": "Préf. d’Arr.  Aïn Chock",
+                    "COMMUNE": [
+                        {
+                            "name": "Aîn-Chock (Arrond.)"
+                        }
+                    ]
+                },
+                {
+                    "name": "Préf. d’Arr.  Hay Hassani",
+                    "COMMUNE": [
+                        {
+                            "name": "Hay-Hassani (Arrond.)"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Nouaceur",
+                    "COMMUNE": [
+                        {
+                            "name": "Nouaceur (Mun.)"
+                        },
+                        {
+                            "name": "Bouskoura (Mun.)"
+                        },
+                        {
+                            "name": "Dar Bouazza (Mun.)"
+                        },
+                        {
+                            "name": "Oulad Azzouz"
+                        },
+                        {
+                            "name": "Oulad Salah"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Fès-Meknès",
+            "PROVINCE": [
+                {
+                    "name": "Préfecture: Fès",
+                    "COMMUNE": [
+                        {
+                            "name": "Agdal (Arrond.)"
+                        },
+                        {
+                            "name": "Méchouar Fès Jdid (Mun.)"
+                        },
+                        {
+                            "name": "Saiss (Arrond.)"
+                        },
+                        {
+                            "name": "Oulad Tayeb"
+                        },
+                        {
+                            "name": "Fès-Médina (Arrond.)"
+                        },
+                        {
+                            "name": "Jnan El Ouard (Arrond.)"
+                        },
+                        {
+                            "name": "Sidi Harazem"
+                        },
+                        {
+                            "name": "Ain Bida"
+                        },
+                        {
+                            "name": "El Mariniyine (Arrond.)"
+                        },
+                        {
+                            "name": "Zouagha (Arrond.)"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Moulay Yacoub",
+                    "COMMUNE": [
+                        {
+                            "name": "Ain Kansra"
+                        },
+                        {
+                            "name": "Moulay Yacoub (Mun.)"
+                        },
+                        {
+                            "name": "Sebaa Rouadi"
+                        },
+                        {
+                            "name": "Mikkes"
+                        },
+                        {
+                            "name": "Sebt Loudaya"
+                        },
+                        {
+                            "name": "Ain Chkef"
+                        },
+                        {
+                            "name": "Laajajra"
+                        },
+                        {
+                            "name": "Sidi Daoud"
+                        },
+                        {
+                            "name": "Oulad Mimoun"
+                        },
+                        {
+                            "name": "Louadaine"
+                        },
+                        {
+                            "name": "Ain Bou Ali"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Sefrou",
+                    "COMMUNE": [
+                        {
+                            "name": "Sefrou (Mun.)"
+                        },
+                        {
+                            "name": "Imouzzer Kandar (Mun.)"
+                        },
+                        {
+                            "name": "Bhalil (Mun.)"
+                        },
+                        {
+                            "name": "El Menzel (Mun.)"
+                        },
+                        {
+                            "name": "Ribate El Kheir (Mun.)"
+                        },
+                        {
+                            "name": "Tafajight"
+                        },
+                        {
+                            "name": "Kandar Sidi Khiar"
+                        },
+                        {
+                            "name": "Laanoussar"
+                        },
+                        {
+                            "name": "Sidi YoussefBen Ahmed"
+                        },
+                        {
+                            "name": "Tazouta"
+                        },
+                        {
+                            "name": "Azzaba"
+                        },
+                        {
+                            "name": "Ahl Sidi Lahcen"
+                        },
+                        {
+                            "name": "Aghbalou Aqorar"
+                        },
+                        {
+                            "name": "Ain Timguenai"
+                        },
+                        {
+                            "name": "Mtarnagha"
+                        },
+                        {
+                            "name": "Oulad Mkoudou"
+                        },
+                        {
+                            "name": "Adrej"
+                        },
+                        {
+                            "name": "Dar El Hamra"
+                        },
+                        {
+                            "name": "Ighzrane"
+                        },
+                        {
+                            "name": "Ras Tabouda"
+                        },
+                        {
+                            "name": "Bir Tam Tam"
+                        },
+                        {
+                            "name": "Ain Cheggag"
+                        },
+                        {
+                            "name": "Ait Sebaa Lajrouf"
+                        }
+                    ]
+                },
+                {
+                    "name": "Préfecture: Meknès",
+                    "COMMUNE": [
+                        {
+                            "name": "Meknès (Mun.)"
+                        },
+                        {
+                            "name": "Moulay Driss Zerhoun (Mun.)"
+                        },
+                        {
+                            "name": "Ouislane (Mun.)"
+                        },
+                        {
+                            "name": "Boufakrane (Mun.)"
+                        },
+                        {
+                            "name": "Oued Jdida"
+                        },
+                        {
+                            "name": "Sidi Slimane Moul Al Kifane"
+                        },
+                        {
+                            "name": "Oualili"
+                        },
+                        {
+                            "name": "MRhassiyine"
+                        },
+                        {
+                            "name": "Sidi Abdallah Al Khayat"
+                        },
+                        {
+                            "name": "Charqaoua"
+                        },
+                        {
+                            "name": "N'zalat Bni Amar"
+                        },
+                        {
+                            "name": "Dkhissa"
+                        },
+                        {
+                            "name": "M'haya"
+                        },
+                        {
+                            "name": "Majjate"
+                        },
+                        {
+                            "name": "Al Machouar - Stinia (Mun.)"
+                        },
+                        {
+                            "name": "Toulal (Mun.)"
+                        },
+                        {
+                            "name": "Ain Orma"
+                        },
+                        {
+                            "name": "Dar Oum Soltane"
+                        },
+                        {
+                            "name": "Ait Ouallal"
+                        },
+                        {
+                            "name": "Ain Karma- Oued Rommane"
+                        },
+                        {
+                            "name": "Ain Jemaa"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: El  Hajeb",
+                    "COMMUNE": [
+                        {
+                            "name": "El Hajeb (Mun.)"
+                        },
+                        {
+                            "name": "Sabaa Aiyoun (Mun.)"
+                        },
+                        {
+                            "name": "Ain Taoujdate (Mun.)"
+                        },
+                        {
+                            "name": "Agourai (Mun.)"
+                        },
+                        {
+                            "name": "Jahjouh"
+                        },
+                        {
+                            "name": "Ait Naamane"
+                        },
+                        {
+                            "name": "Iqaddar"
+                        },
+                        {
+                            "name": "Ait Bourzouine"
+                        },
+                        {
+                            "name": "Ait Harz Allah"
+                        },
+                        {
+                            "name": "Ait Boubidmane"
+                        },
+                        {
+                            "name": "Bitit"
+                        },
+                        {
+                            "name": "Laqsir"
+                        },
+                        {
+                            "name": "Ait Yaazem"
+                        },
+                        {
+                            "name": "Tamchachate"
+                        },
+                        {
+                            "name": "Ait Ouikhalfen"
+                        },
+                        {
+                            "name": "Ras Ijerri"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Boulemane",
+                    "COMMUNE": [
+                        {
+                            "name": "Boulemane (Mun.)"
+                        },
+                        {
+                            "name": "Missour (Mun.)"
+                        },
+                        {
+                            "name": "Outat El Haj (Mun.)"
+                        },
+                        {
+                            "name": "Imouzzer Marmoucha (Mun.)"
+                        },
+                        {
+                            "name": "Guigou"
+                        },
+                        {
+                            "name": "Serghina"
+                        },
+                        {
+                            "name": "Enjil"
+                        },
+                        {
+                            "name": "Ait El Mane"
+                        },
+                        {
+                            "name": "Ait Bazza"
+                        },
+                        {
+                            "name": "Almis Marmoucha"
+                        },
+                        {
+                            "name": "Talzemt"
+                        },
+                        {
+                            "name": "El Mers"
+                        },
+                        {
+                            "name": "Skoura M'Daz"
+                        },
+                        {
+                            "name": "Ksabi Moulouya"
+                        },
+                        {
+                            "name": "Ouizeght"
+                        },
+                        {
+                            "name": "Sidi Boutayeb"
+                        },
+                        {
+                            "name": "Oulad Ali Youssef"
+                        },
+                        {
+                            "name": "El Orjane"
+                        },
+                        {
+                            "name": "Tissaf"
+                        },
+                        {
+                            "name": "Ermila"
+                        },
+                        {
+                            "name": "Fritissa"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Ifrane",
+                    "COMMUNE": [
+                        {
+                            "name": "Azrou (Mun.)"
+                        },
+                        {
+                            "name": "Ifrane (Mun.)"
+                        },
+                        {
+                            "name": "Ain Leuh"
+                        },
+                        {
+                            "name": "Tizguite"
+                        },
+                        {
+                            "name": "Dayat Aoua"
+                        },
+                        {
+                            "name": "Ben Smim"
+                        },
+                        {
+                            "name": "Tigrigra"
+                        },
+                        {
+                            "name": "Timahdite"
+                        },
+                        {
+                            "name": "Oued Ifrane"
+                        },
+                        {
+                            "name": "Sidi El Makhfi"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Taounate",
+                    "COMMUNE": [
+                        {
+                            "name": "Taounate (Mun.)"
+                        },
+                        {
+                            "name": "Karia Ba Mohamed (Mun.)"
+                        },
+                        {
+                            "name": "Ghafsai (Mun.)"
+                        },
+                        {
+                            "name": "Tissa (Mun.)"
+                        },
+                        {
+                            "name": "Thar Es-souk (Mun.)"
+                        },
+                        {
+                            "name": "Bouchabel"
+                        },
+                        {
+                            "name": "Jbabra"
+                        },
+                        {
+                            "name": "Sidi El Abed"
+                        },
+                        {
+                            "name": "Loulja"
+                        },
+                        {
+                            "name": "Moulay Abdelkrim"
+                        },
+                        {
+                            "name": "Bni Snous"
+                        },
+                        {
+                            "name": "Moulay Bouchta"
+                        },
+                        {
+                            "name": "Mkansa"
+                        },
+                        {
+                            "name": "Rhouazi"
+                        },
+                        {
+                            "name": "Galaz"
+                        },
+                        {
+                            "name": "Ouartzagh"
+                        },
+                        {
+                            "name": "Sidi Haj M'hamed"
+                        },
+                        {
+                            "name": "Ratba"
+                        },
+                        {
+                            "name": "El Bibane"
+                        },
+                        {
+                            "name": "Oudka"
+                        },
+                        {
+                            "name": "Sidi YahyaBni Zeroual"
+                        },
+                        {
+                            "name": "Sidi Mokhfi"
+                        },
+                        {
+                            "name": "Timezgana"
+                        },
+                        {
+                            "name": "Kissane"
+                        },
+                        {
+                            "name": "Tabouda"
+                        },
+                        {
+                            "name": "Tafrant"
+                        },
+                        {
+                            "name": "Ain Mediouna"
+                        },
+                        {
+                            "name": "Bni Oulid"
+                        },
+                        {
+                            "name": "Bouadel"
+                        },
+                        {
+                            "name": "Bouhouda"
+                        },
+                        {
+                            "name": "Zrizer"
+                        },
+                        {
+                            "name": "Khlalfa"
+                        },
+                        {
+                            "name": "Rghioua"
+                        },
+                        {
+                            "name": "Mezraoua"
+                        },
+                        {
+                            "name": "Tamedit"
+                        },
+                        {
+                            "name": "Bni Ounjel Tafraout"
+                        },
+                        {
+                            "name": "Fennassa Bab El Hit"
+                        },
+                        {
+                            "name": "El Bsabsa"
+                        },
+                        {
+                            "name": "Oued Jemaa"
+                        },
+                        {
+                            "name": "Ras El Oued"
+                        },
+                        {
+                            "name": "Sidi M'HamedBen Lahcen"
+                        },
+                        {
+                            "name": "Ain Maatouf"
+                        },
+                        {
+                            "name": "Ain Aicha"
+                        },
+                        {
+                            "name": "Oulad Daoud"
+                        },
+                        {
+                            "name": "Bouarouss"
+                        },
+                        {
+                            "name": "Ain Legdah"
+                        },
+                        {
+                            "name": "Oulad Ayyad"
+                        },
+                        {
+                            "name": "Messassa"
+                        },
+                        {
+                            "name": "Outabouabane"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Taza",
+                    "COMMUNE": [
+                        {
+                            "name": "Tainaste"
+                        },
+                        {
+                            "name": "Taza (Mun.)"
+                        },
+                        {
+                            "name": "Tahla (Mun.)"
+                        },
+                        {
+                            "name": "Aknoul (Mun.)"
+                        },
+                        {
+                            "name": "Oued Amlil (Mun.)"
+                        },
+                        {
+                            "name": "Matmata"
+                        },
+                        {
+                            "name": "Zrarda"
+                        },
+                        {
+                            "name": "Oulad Zbair"
+                        },
+                        {
+                            "name": "Bourd"
+                        },
+                        {
+                            "name": "Ajdir"
+                        },
+                        {
+                            "name": "Gzenaya Al Janoubia"
+                        },
+                        {
+                            "name": "Jbarna"
+                        },
+                        {
+                            "name": "Sidi Ali Bourakba"
+                        },
+                        {
+                            "name": "Tizi Ouasli"
+                        },
+                        {
+                            "name": "Ait Saghrouchen"
+                        },
+                        {
+                            "name": "Maghraoua"
+                        },
+                        {
+                            "name": "Tazarine"
+                        },
+                        {
+                            "name": "Bouyablane"
+                        },
+                        {
+                            "name": "Smià"
+                        },
+                        {
+                            "name": "Bni Ftah"
+                        },
+                        {
+                            "name": "Traiba"
+                        },
+                        {
+                            "name": "Taifa"
+                        },
+                        {
+                            "name": "Kaf El Ghar"
+                        },
+                        {
+                            "name": "Msila"
+                        },
+                        {
+                            "name": "Brarha"
+                        },
+                        {
+                            "name": "El Gouzate"
+                        },
+                        {
+                            "name": "Bab Boudir"
+                        },
+                        {
+                            "name": "Bab Marzouka"
+                        },
+                        {
+                            "name": "Galdamane"
+                        },
+                        {
+                            "name": "Meknassa Al Gharbia"
+                        },
+                        {
+                            "name": "Meknassa Acharqia"
+                        },
+                        {
+                            "name": "Bni Lent"
+                        },
+                        {
+                            "name": "Oulad Chrif"
+                        },
+                        {
+                            "name": "Bouhlou"
+                        },
+                        {
+                            "name": "Bouchfaa"
+                        },
+                        {
+                            "name": "Ghiata Al Gharbia"
+                        },
+                        {
+                            "name": "Rbaa El Fouki"
+                        },
+                        {
+                            "name": "Bni Frassen"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Marrakech-Safi",
+            "PROVINCE": [
+                {
+                    "name": "Préfecture: Marrakech",
+                    "COMMUNE": [
+                        {
+                            "name": "Méchouar-Kasba (Mun.)"
+                        },
+                        {
+                            "name": "Marrakech-Médina (Arrond.)"
+                        },
+                        {
+                            "name": "Gueliz (Arrond.)"
+                        },
+                        {
+                            "name": "Ménara (Arrond.)"
+                        },
+                        {
+                            "name": "Sid Zouine"
+                        },
+                        {
+                            "name": "Saada"
+                        },
+                        {
+                            "name": "Souihla"
+                        },
+                        {
+                            "name": "Loudaya"
+                        },
+                        {
+                            "name": "Tassoultante"
+                        },
+                        {
+                            "name": "Agafay"
+                        },
+                        {
+                            "name": "Ait Imour"
+                        },
+                        {
+                            "name": "Sidi Youssef Ben Ali (Arrond.)"
+                        },
+                        {
+                            "name": "Annakhil (Arrond.)"
+                        },
+                        {
+                            "name": "M'Nabha"
+                        },
+                        {
+                            "name": "Harbil"
+                        },
+                        {
+                            "name": "Ouahat Sidi Brahim"
+                        },
+                        {
+                            "name": "Ouled Dlim"
+                        },
+                        {
+                            "name": "Alouidane"
+                        },
+                        {
+                            "name": "Oulad Hassoune"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Chichaoua",
+                    "COMMUNE": [
+                        {
+                            "name": "Chichaoua (Mun.)"
+                        },
+                        {
+                            "name": "Lamzoudia"
+                        },
+                        {
+                            "name": "Sid L'Mokhtar"
+                        },
+                        {
+                            "name": "Imintanoute (Mun.)"
+                        },
+                        {
+                            "name": "Ait Hadi"
+                        },
+                        {
+                            "name": "Sidi Bouzid Arragragui"
+                        },
+                        {
+                            "name": "Ahdil"
+                        },
+                        {
+                            "name": "Oulad Moumna"
+                        },
+                        {
+                            "name": "Sidi M'Hamed Dalil"
+                        },
+                        {
+                            "name": "Saidate"
+                        },
+                        {
+                            "name": "Nfifa"
+                        },
+                        {
+                            "name": "Ouad L'bour"
+                        },
+                        {
+                            "name": "Irohalen"
+                        },
+                        {
+                            "name": "Afalla Issen"
+                        },
+                        {
+                            "name": "Timezgadiouine"
+                        },
+                        {
+                            "name": "Sidi Ghanem"
+                        },
+                        {
+                            "name": "Ait Haddou Youssef"
+                        },
+                        {
+                            "name": "Lalla Aaziza"
+                        },
+                        {
+                            "name": "Bouabout Amdlane"
+                        },
+                        {
+                            "name": "Rahhala"
+                        },
+                        {
+                            "name": "Bouabout"
+                        },
+                        {
+                            "name": "Timlilt"
+                        },
+                        {
+                            "name": "Kouzemt"
+                        },
+                        {
+                            "name": "Ichamraren"
+                        },
+                        {
+                            "name": "Sidi Abdelmoumen"
+                        },
+                        {
+                            "name": "Taouloukoult"
+                        },
+                        {
+                            "name": "Gmassa"
+                        },
+                        {
+                            "name": "Majjat"
+                        },
+                        {
+                            "name": "Douirane"
+                        },
+                        {
+                            "name": "Zaouia Annahlia"
+                        },
+                        {
+                            "name": "M'Zouda"
+                        },
+                        {
+                            "name": "Assif El Mal"
+                        },
+                        {
+                            "name": "Adassil"
+                        },
+                        {
+                            "name": "Imindounit"
+                        },
+                        {
+                            "name": "Ain Tazitounte"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Al  Haouz",
+                    "COMMUNE": [
+                        {
+                            "name": "Ait Ourir (Mun.)"
+                        },
+                        {
+                            "name": "Amizmiz (Mun.)"
+                        },
+                        {
+                            "name": "Tahannaout (Mun.)"
+                        },
+                        {
+                            "name": "Moulay Brahim"
+                        },
+                        {
+                            "name": "Ourika"
+                        },
+                        {
+                            "name": "Ghmate"
+                        },
+                        {
+                            "name": "Ait Sidi Daoud"
+                        },
+                        {
+                            "name": "Ait Faska"
+                        },
+                        {
+                            "name": "Tighedouine"
+                        },
+                        {
+                            "name": "Tidili Mesfioua"
+                        },
+                        {
+                            "name": "Sidi Abdallah Ghiat"
+                        },
+                        {
+                            "name": "Tamazouzte"
+                        },
+                        {
+                            "name": "Iguerferouane"
+                        },
+                        {
+                            "name": "Ait Aadel"
+                        },
+                        {
+                            "name": "Ait Hkim-Ait Yzid"
+                        },
+                        {
+                            "name": "Abadou"
+                        },
+                        {
+                            "name": "Tazart"
+                        },
+                        {
+                            "name": "Tamaguert"
+                        },
+                        {
+                            "name": "Touama"
+                        },
+                        {
+                            "name": "Zerkten"
+                        },
+                        {
+                            "name": "Asni"
+                        },
+                        {
+                            "name": "Ighil"
+                        },
+                        {
+                            "name": "Aghbar"
+                        },
+                        {
+                            "name": "Talat N'Yaaqoub"
+                        },
+                        {
+                            "name": "Ijoukak"
+                        },
+                        {
+                            "name": "Imgdal"
+                        },
+                        {
+                            "name": "Ouirgane"
+                        },
+                        {
+                            "name": "Amghras"
+                        },
+                        {
+                            "name": "Anougal"
+                        },
+                        {
+                            "name": "Azgour"
+                        },
+                        {
+                            "name": "Tizguine"
+                        },
+                        {
+                            "name": "Dar Jamaa"
+                        },
+                        {
+                            "name": "Sidi Badhaj"
+                        },
+                        {
+                            "name": "Oulad Mtaa"
+                        },
+                        {
+                            "name": "Lalla Takarkoust"
+                        },
+                        {
+                            "name": "Ouazguita"
+                        },
+                        {
+                            "name": "Sti Fadma"
+                        },
+                        {
+                            "name": "Oukaimden"
+                        },
+                        {
+                            "name": "Aghouatim"
+                        },
+                        {
+                            "name": "Tameslohte"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: El Kelâa des  S",
+                    "COMMUNE": [
+                        {
+                            "name": "El Kelaâ des Sraghna (Mun.)"
+                        },
+                        {
+                            "name": "Laattaouia (Mun.)"
+                        },
+                        {
+                            "name": "Sidi Rahhal (Mun.)"
+                        },
+                        {
+                            "name": "Tamallalt (Mun.)"
+                        },
+                        {
+                            "name": "El Marbouh"
+                        },
+                        {
+                            "name": "Oulad Aarrad"
+                        },
+                        {
+                            "name": "Laattaouia Ech-chaibia"
+                        },
+                        {
+                            "name": "Choara"
+                        },
+                        {
+                            "name": "Dzouz"
+                        },
+                        {
+                            "name": "Fraita"
+                        },
+                        {
+                            "name": "Laatamna"
+                        },
+                        {
+                            "name": "Ouargui"
+                        },
+                        {
+                            "name": "Bouya Omar"
+                        },
+                        {
+                            "name": "Assahrij"
+                        },
+                        {
+                            "name": "Sour El Aaz"
+                        },
+                        {
+                            "name": "Oulad Khallouf"
+                        },
+                        {
+                            "name": "Louad Lakhdar"
+                        },
+                        {
+                            "name": "M'Zem Sanhaja"
+                        },
+                        {
+                            "name": "Sidi Aissa Ben Slimane"
+                        },
+                        {
+                            "name": "Zemrane"
+                        },
+                        {
+                            "name": "Zemrane Charqia"
+                        },
+                        {
+                            "name": "Jouala"
+                        },
+                        {
+                            "name": "Jbiel"
+                        },
+                        {
+                            "name": "Oulad Sbih"
+                        },
+                        {
+                            "name": "Hiadna"
+                        },
+                        {
+                            "name": "Oulad Zarrad"
+                        },
+                        {
+                            "name": "Oulad Cherki"
+                        },
+                        {
+                            "name": "Mayate"
+                        },
+                        {
+                            "name": "Errafiaya"
+                        },
+                        {
+                            "name": "Oulad Aamer"
+                        },
+                        {
+                            "name": "Taouzint"
+                        },
+                        {
+                            "name": "Oulad Bouali Loued"
+                        },
+                        {
+                            "name": "El Aamria"
+                        },
+                        {
+                            "name": "Oulad Msabbel"
+                        },
+                        {
+                            "name": "Oulad Massaoud"
+                        },
+                        {
+                            "name": "Eddachra"
+                        },
+                        {
+                            "name": "Sidi Moussa"
+                        },
+                        {
+                            "name": "Sidi El Hattab"
+                        },
+                        {
+                            "name": "Chtaiba"
+                        },
+                        {
+                            "name": "Znada"
+                        },
+                        {
+                            "name": "Oulad Yaacoub"
+                        },
+                        {
+                            "name": "Oulad El Garne"
+                        },
+                        {
+                            "name": "Lounasda"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Rehamna",
+                    "COMMUNE": [
+                        {
+                            "name": "Ben Guerir (Mun.)"
+                        },
+                        {
+                            "name": "Sidi Bou Othmane (Mun.)"
+                        },
+                        {
+                            "name": "Nzalat Laadam"
+                        },
+                        {
+                            "name": "Skhour Rehamna"
+                        },
+                        {
+                            "name": "Bourrous"
+                        },
+                        {
+                            "name": "Sidi Boubker"
+                        },
+                        {
+                            "name": "Jbilate"
+                        },
+                        {
+                            "name": "Lamharra"
+                        },
+                        {
+                            "name": "Oulad Imloul"
+                        },
+                        {
+                            "name": "Akarma"
+                        },
+                        {
+                            "name": "Tlauh"
+                        },
+                        {
+                            "name": "Jaidate"
+                        },
+                        {
+                            "name": "Ras Ain Rhamna"
+                        },
+                        {
+                            "name": "Jaafra"
+                        },
+                        {
+                            "name": "Sidi Abdallah"
+                        },
+                        {
+                            "name": "Skoura Lhadra"
+                        },
+                        {
+                            "name": "Sidi Ghanem"
+                        },
+                        {
+                            "name": "Sidi Mansour"
+                        },
+                        {
+                            "name": "Sidi Ali Labrahla"
+                        },
+                        {
+                            "name": "Oulad Hassoune Hamri"
+                        },
+                        {
+                            "name": "Labrikiyne"
+                        },
+                        {
+                            "name": "Oulad Aamer Tizmarine"
+                        },
+                        {
+                            "name": "Ait Hammou"
+                        },
+                        {
+                            "name": "Bouchane"
+                        },
+                        {
+                            "name": "Ait Taleb"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Essaouira",
+                    "COMMUNE": [
+                        {
+                            "name": "Essaouira (Mun.)"
+                        },
+                        {
+                            "name": "El Hanchane (Mun.)"
+                        },
+                        {
+                            "name": "Talmest (Mun.)"
+                        },
+                        {
+                            "name": "Ait Daoud (Mun.)"
+                        },
+                        {
+                            "name": "Tamanar (Mun.)"
+                        },
+                        {
+                            "name": "Tafetachte"
+                        },
+                        {
+                            "name": "Smimou"
+                        },
+                        {
+                            "name": "Mzilate"
+                        },
+                        {
+                            "name": "Sidi M'Hamed Ou Marzouq"
+                        },
+                        {
+                            "name": "M'Ramer"
+                        },
+                        {
+                            "name": "Sidi Boulaalam"
+                        },
+                        {
+                            "name": "Sidi Aissa Regragui"
+                        },
+                        {
+                            "name": "Takate"
+                        },
+                        {
+                            "name": "Oulad M'Rabet"
+                        },
+                        {
+                            "name": "Mejji"
+                        },
+                        {
+                            "name": "Kechoula"
+                        },
+                        {
+                            "name": "Moulay Bouzarqtoune"
+                        },
+                        {
+                            "name": "Ounagha"
+                        },
+                        {
+                            "name": "Had Dra"
+                        },
+                        {
+                            "name": "Meskala"
+                        },
+                        {
+                            "name": "Mouarid"
+                        },
+                        {
+                            "name": "Korimate"
+                        },
+                        {
+                            "name": "Lahsinate"
+                        },
+                        {
+                            "name": "Ait Said"
+                        },
+                        {
+                            "name": "Lagdadra"
+                        },
+                        {
+                            "name": "Sidi Ishaq"
+                        },
+                        {
+                            "name": "Sidi Ali El Korati"
+                        },
+                        {
+                            "name": "Aquermoud"
+                        },
+                        {
+                            "name": "Zaouiat Ben Hmida"
+                        },
+                        {
+                            "name": "M'Khalif"
+                        },
+                        {
+                            "name": "Sidi Abdeljalil"
+                        },
+                        {
+                            "name": "Sidi Laaroussi"
+                        },
+                        {
+                            "name": "Adaghas"
+                        },
+                        {
+                            "name": "Assais"
+                        },
+                        {
+                            "name": "Bouzemmour"
+                        },
+                        {
+                            "name": "Aglif"
+                        },
+                        {
+                            "name": "Takoucht"
+                        },
+                        {
+                            "name": "Sidi Ghaneme"
+                        },
+                        {
+                            "name": "Ezzaouite"
+                        },
+                        {
+                            "name": "Tahelouante"
+                        },
+                        {
+                            "name": "Bizdad"
+                        },
+                        {
+                            "name": "Sidi Kaouki"
+                        },
+                        {
+                            "name": "Aguerd"
+                        },
+                        {
+                            "name": "Sidi Hmad Ou Hamed"
+                        },
+                        {
+                            "name": "Tidzi"
+                        },
+                        {
+                            "name": "Sidi El Jazouli"
+                        },
+                        {
+                            "name": "Imi N'Tlit"
+                        },
+                        {
+                            "name": "Tafedna"
+                        },
+                        {
+                            "name": "Sidi Ahmed Essayeh"
+                        },
+                        {
+                            "name": "Ida Ou Aazza"
+                        },
+                        {
+                            "name": "Timizguida-Ouftas"
+                        },
+                        {
+                            "name": "Ait Aissi Ihahane"
+                        },
+                        {
+                            "name": "Ida Ou Kazzou"
+                        },
+                        {
+                            "name": "Ida Ou Guelloul"
+                        },
+                        {
+                            "name": "Sidi H'Mad Ou M'Barek"
+                        },
+                        {
+                            "name": "Imgrade"
+                        },
+                        {
+                            "name": "Targante"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Safi",
+                    "COMMUNE": [
+                        {
+                            "name": "Safi (Mun.)"
+                        },
+                        {
+                            "name": "Jamaat Shaim (Mun.)"
+                        },
+                        {
+                            "name": "Sebt Gzoula (Mun.)"
+                        },
+                        {
+                            "name": "Bouguedra"
+                        },
+                        {
+                            "name": "Chahda"
+                        },
+                        {
+                            "name": "Lamrasla"
+                        },
+                        {
+                            "name": "Sidi Ettiji"
+                        },
+                        {
+                            "name": "Lahdar"
+                        },
+                        {
+                            "name": "Labkhati"
+                        },
+                        {
+                            "name": "Lamsabih"
+                        },
+                        {
+                            "name": "El Gouraani"
+                        },
+                        {
+                            "name": "Sidi Aissa"
+                        },
+                        {
+                            "name": "Moul El Bergui"
+                        },
+                        {
+                            "name": "Dar Si Aissa"
+                        },
+                        {
+                            "name": "El Beddouza"
+                        },
+                        {
+                            "name": "Ayir"
+                        },
+                        {
+                            "name": "Hrara"
+                        },
+                        {
+                            "name": "Khatazakane"
+                        },
+                        {
+                            "name": "Ouled Salmane"
+                        },
+                        {
+                            "name": "Saadla"
+                        },
+                        {
+                            "name": "Laamamra"
+                        },
+                        {
+                            "name": "Nagga"
+                        },
+                        {
+                            "name": "Lamaachate"
+                        },
+                        {
+                            "name": "Atouabet"
+                        },
+                        {
+                            "name": "El Ghiate"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Youssoufia",
+                    "COMMUNE": [
+                        {
+                            "name": "Youssoufia (Mun.)"
+                        },
+                        {
+                            "name": "Echemmaia (Mun.)"
+                        },
+                        {
+                            "name": "El Gantour"
+                        },
+                        {
+                            "name": "Atiamim"
+                        },
+                        {
+                            "name": "Jdour"
+                        },
+                        {
+                            "name": "Jnane Bouih"
+                        },
+                        {
+                            "name": "Lakhoualqa"
+                        },
+                        {
+                            "name": "Ras El Ain"
+                        },
+                        {
+                            "name": "Sidi Chiker"
+                        },
+                        {
+                            "name": "Ighoud"
+                        },
+                        {
+                            "name": "Esbiaat"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Guelmim-Oued Noun",
+            "PROVINCE": [
+                {
+                    "name": "Province: Guelmim",
+                    "COMMUNE": [
+                        {
+                            "name": "Bouizakarne (Mun.)"
+                        },
+                        {
+                            "name": "Echatea El Abied"
+                        },
+                        {
+                            "name": "Guelmim (Mun.)"
+                        },
+                        {
+                            "name": "Taghjijt"
+                        },
+                        {
+                            "name": "Tiglit"
+                        },
+                        {
+                            "name": "Tagante"
+                        },
+                        {
+                            "name": "Ait Boufoulen"
+                        },
+                        {
+                            "name": "Ifrane Atlas Saghir"
+                        },
+                        {
+                            "name": "Timoulay"
+                        },
+                        {
+                            "name": "Amtdi"
+                        },
+                        {
+                            "name": "Aday"
+                        },
+                        {
+                            "name": "Aferkat"
+                        },
+                        {
+                            "name": "Asrir"
+                        },
+                        {
+                            "name": "Fask"
+                        },
+                        {
+                            "name": "Rass Oumlil"
+                        },
+                        {
+                            "name": "Labyar"
+                        },
+                        {
+                            "name": "Targa Wassay"
+                        },
+                        {
+                            "name": "Laqsabi Tagoust"
+                        },
+                        {
+                            "name": "Taliouine Assaka"
+                        },
+                        {
+                            "name": "Abaynou"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Assa-Zag",
+                    "COMMUNE": [
+                        {
+                            "name": "Assa (Mun.)"
+                        },
+                        {
+                            "name": "Zag (Mun.)"
+                        },
+                        {
+                            "name": "Labouirat"
+                        },
+                        {
+                            "name": "Aouint Lahna"
+                        },
+                        {
+                            "name": "Aouint Yghomane"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Tan-Tan",
+                    "COMMUNE": [
+                        {
+                            "name": "Tan Tan (Mun.)"
+                        },
+                        {
+                            "name": "El Ouatia (Mun.)"
+                        },
+                        {
+                            "name": "Abteh"
+                        },
+                        {
+                            "name": "Msied"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Sidi Ifni",
+                    "COMMUNE": [
+                        {
+                            "name": "Sidi Ifni (Mun.)"
+                        },
+                        {
+                            "name": "Lakhsas (Mun.)"
+                        },
+                        {
+                            "name": "Mesti"
+                        },
+                        {
+                            "name": "Sbouya"
+                        },
+                        {
+                            "name": "Imi N'Fast"
+                        },
+                        {
+                            "name": "Tnine Amellou"
+                        },
+                        {
+                            "name": "Tangarfa"
+                        },
+                        {
+                            "name": "Arbaa Ait Abdellah"
+                        },
+                        {
+                            "name": "Tioughza"
+                        },
+                        {
+                            "name": "Mirleft"
+                        },
+                        {
+                            "name": "Sidi M'Bark"
+                        },
+                        {
+                            "name": "Sidi H'Saine Ou Ali"
+                        },
+                        {
+                            "name": "Ait Erkha"
+                        },
+                        {
+                            "name": "Sidi AbdallahOu Belaid"
+                        },
+                        {
+                            "name": "Boutrouch"
+                        },
+                        {
+                            "name": "Ibdar"
+                        },
+                        {
+                            "name": "Tighirt"
+                        },
+                        {
+                            "name": "Sebt Ennabour"
+                        },
+                        {
+                            "name": "Anfeg"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Oriental",
+            "PROVINCE": [
+                {
+                    "name": "Préfecture: Oujda-Angad",
+                    "COMMUNE": [
+                        {
+                            "name": "Oujda (Mun.)"
+                        },
+                        {
+                            "name": "Bni Drar (Mun.)"
+                        },
+                        {
+                            "name": "Naima (Mun.)"
+                        },
+                        {
+                            "name": "Ain Sfa"
+                        },
+                        {
+                            "name": "Bni Khaled"
+                        },
+                        {
+                            "name": "Bsara"
+                        },
+                        {
+                            "name": "Mestferki"
+                        },
+                        {
+                            "name": "Sidi Boulenouar"
+                        },
+                        {
+                            "name": "Sidi Moussa Lemhaya"
+                        },
+                        {
+                            "name": "Ahl Angad"
+                        },
+                        {
+                            "name": "Isly"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Berkane",
+                    "COMMUNE": [
+                        {
+                            "name": "Berkane (Mun.)"
+                        },
+                        {
+                            "name": "Ahfir (Mun.)"
+                        },
+                        {
+                            "name": "Saidia (Mun.)"
+                        },
+                        {
+                            "name": "Aklim (Mun.)"
+                        },
+                        {
+                            "name": "Sidi Slimane Echcharraa (Mun.)"
+                        },
+                        {
+                            "name": "Laatamna"
+                        },
+                        {
+                            "name": "Madagh"
+                        },
+                        {
+                            "name": "Boughriba"
+                        },
+                        {
+                            "name": "Aghbal"
+                        },
+                        {
+                            "name": "Chouihia"
+                        },
+                        {
+                            "name": "Fezouane"
+                        },
+                        {
+                            "name": "Zegzel"
+                        },
+                        {
+                            "name": "Rislane"
+                        },
+                        {
+                            "name": "Sidi Bouhria"
+                        },
+                        {
+                            "name": "Tafoughalt"
+                        },
+                        {
+                            "name": "Ain Erreggada (Mun.)"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Taourirt",
+                    "COMMUNE": [
+                        {
+                            "name": "Taourirt (Mun.)"
+                        },
+                        {
+                            "name": "El Aioun Sidi Mellouk (Mun.)"
+                        },
+                        {
+                            "name": "Ain Lehjer"
+                        },
+                        {
+                            "name": "Mestegmer"
+                        },
+                        {
+                            "name": "Mechraa Hammadi"
+                        },
+                        {
+                            "name": "Tancherfi"
+                        },
+                        {
+                            "name": "Ahl Oued Za"
+                        },
+                        {
+                            "name": "Gteter"
+                        },
+                        {
+                            "name": "Melg El Ouidane"
+                        },
+                        {
+                            "name": "Debdou (Mun.)"
+                        },
+                        {
+                            "name": "Sidi Ali Bel Quassem"
+                        },
+                        {
+                            "name": "Oulad M'hammed"
+                        },
+                        {
+                            "name": "Sidi Lahsen"
+                        },
+                        {
+                            "name": "El Atef"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Jerada",
+                    "COMMUNE": [
+                        {
+                            "name": "Jerada (Mun.)"
+                        },
+                        {
+                            "name": "Ain Bni Mathar (Mun.)"
+                        },
+                        {
+                            "name": "Touissit (Mun.)"
+                        },
+                        {
+                            "name": "Bni Mathar"
+                        },
+                        {
+                            "name": "Oulad Ghziyel"
+                        },
+                        {
+                            "name": "Laaouinate"
+                        },
+                        {
+                            "name": "Guenfouda"
+                        },
+                        {
+                            "name": "Lebkhata"
+                        },
+                        {
+                            "name": "Tiouli"
+                        },
+                        {
+                            "name": "Sidi Boubker"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Figuig",
+                    "COMMUNE": [
+                        {
+                            "name": "Figuig (Mun.)"
+                        },
+                        {
+                            "name": "Bouarfa (Mun.)"
+                        },
+                        {
+                            "name": "Bni Tadjite"
+                        },
+                        {
+                            "name": "Tendrara"
+                        },
+                        {
+                            "name": "Bni Guil"
+                        },
+                        {
+                            "name": "Bouanane"
+                        },
+                        {
+                            "name": "Ain Chair"
+                        },
+                        {
+                            "name": "Ain Chouater"
+                        },
+                        {
+                            "name": "Boumerieme"
+                        },
+                        {
+                            "name": "Talsint"
+                        },
+                        {
+                            "name": "Bouchaouene"
+                        },
+                        {
+                            "name": "Maatarka"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Nador",
+                    "COMMUNE": [
+                        {
+                            "name": "Nador (Mun.)"
+                        },
+                        {
+                            "name": "Zeghanghane (Mun.)"
+                        },
+                        {
+                            "name": "Bni Ansar (Mun.)"
+                        },
+                        {
+                            "name": "Al Aaroui (Mun.)"
+                        },
+                        {
+                            "name": "Zaio (Mun.)"
+                        },
+                        {
+                            "name": "Ihaddadene"
+                        },
+                        {
+                            "name": "Selouane (Mun.)"
+                        },
+                        {
+                            "name": "Arekmane"
+                        },
+                        {
+                            "name": "Bni Bouifrour"
+                        },
+                        {
+                            "name": "Iksane"
+                        },
+                        {
+                            "name": "Bouarg"
+                        },
+                        {
+                            "name": "Iaazzanene"
+                        },
+                        {
+                            "name": "Bni Chiker"
+                        },
+                        {
+                            "name": "Bni Sidel Jbel"
+                        },
+                        {
+                            "name": "Bni Sidel Louta"
+                        },
+                        {
+                            "name": "Hassi Berkane"
+                        },
+                        {
+                            "name": "Tiztoutine"
+                        },
+                        {
+                            "name": "Bni Oukil Oulad M'Hand"
+                        },
+                        {
+                            "name": "Al Barkanyene"
+                        },
+                        {
+                            "name": "Oulad Settout"
+                        },
+                        {
+                            "name": "Oulad Daoud Zkhanine"
+                        },
+                        {
+                            "name": "Ras El Ma (Mun.)"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Driouch",
+                    "COMMUNE": [
+                        {
+                            "name": "Ben Taieb (Mun.)"
+                        },
+                        {
+                            "name": "Midar (Mun.)"
+                        },
+                        {
+                            "name": "Driouch (Mun.)"
+                        },
+                        {
+                            "name": "Dar El Kebdani"
+                        },
+                        {
+                            "name": "Talilit"
+                        },
+                        {
+                            "name": "M'Hajer"
+                        },
+                        {
+                            "name": "Ouardana"
+                        },
+                        {
+                            "name": "Iferni"
+                        },
+                        {
+                            "name": "Tafersit"
+                        },
+                        {
+                            "name": "Azlaf"
+                        },
+                        {
+                            "name": "Tsaft"
+                        },
+                        {
+                            "name": "Ijermaouas"
+                        },
+                        {
+                            "name": "Oulad Amghar"
+                        },
+                        {
+                            "name": "Boudinar"
+                        },
+                        {
+                            "name": "Bni Marghnine"
+                        },
+                        {
+                            "name": "Temsamane"
+                        },
+                        {
+                            "name": "Trougout"
+                        },
+                        {
+                            "name": "Mtalssa"
+                        },
+                        {
+                            "name": "Ain Zohra"
+                        },
+                        {
+                            "name": "Oulad Boubker"
+                        },
+                        {
+                            "name": "Tazaghine"
+                        },
+                        {
+                            "name": "Amejjaou"
+                        },
+                        {
+                            "name": "Ait Mait"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Guercif",
+                    "COMMUNE": [
+                        {
+                            "name": "Guercif (Mun.)"
+                        },
+                        {
+                            "name": "Oulad Bourima"
+                        },
+                        {
+                            "name": "Mazguitam"
+                        },
+                        {
+                            "name": "Ras Laksar"
+                        },
+                        {
+                            "name": "Assebbab"
+                        },
+                        {
+                            "name": "Barkine"
+                        },
+                        {
+                            "name": "Houara Oulad Raho"
+                        },
+                        {
+                            "name": "Taddart"
+                        },
+                        {
+                            "name": "Lamrija"
+                        },
+                        {
+                            "name": "Saka"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Souss-Massa",
+            "PROVINCE": [
+                {
+                    "name": "Préfecture: Agadir-Ida -O",
+                    "COMMUNE": [
+                        {
+                            "name": "Agadir (Mun.)"
+                        },
+                        {
+                            "name": "Aourir"
+                        },
+                        {
+                            "name": "Amskroud"
+                        },
+                        {
+                            "name": "Drargua"
+                        },
+                        {
+                            "name": "Aqesri"
+                        },
+                        {
+                            "name": "Aziar"
+                        },
+                        {
+                            "name": "Imouzzer"
+                        },
+                        {
+                            "name": "Idmine"
+                        },
+                        {
+                            "name": "Tadrart"
+                        },
+                        {
+                            "name": "Tiqqi"
+                        },
+                        {
+                            "name": "Taghazout"
+                        },
+                        {
+                            "name": "Imsouane"
+                        },
+                        {
+                            "name": "Tamri"
+                        }
+                    ]
+                },
+                {
+                    "name": "Préfecture: Inezgane- Ait",
+                    "COMMUNE": [
+                        {
+                            "name": "Inezgane (Mun.)"
+                        },
+                        {
+                            "name": "Dcheira El Jihadia (Mun.)"
+                        },
+                        {
+                            "name": "Ait Melloul (Mun.)"
+                        },
+                        {
+                            "name": "Lqliaa (Mun.)"
+                        },
+                        {
+                            "name": "Temsia"
+                        },
+                        {
+                            "name": "Oulad Dahou"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Chtouka- Ait Ba",
+                    "COMMUNE": [
+                        {
+                            "name": "Biougra (Mun.)"
+                        },
+                        {
+                            "name": "Ouad Essafa"
+                        },
+                        {
+                            "name": "Massa"
+                        },
+                        {
+                            "name": "Belfaa"
+                        },
+                        {
+                            "name": "Inchaden"
+                        },
+                        {
+                            "name": "Sidi Ouassay"
+                        },
+                        {
+                            "name": "Ait Baha (Mun.)"
+                        },
+                        {
+                            "name": "Sidi Bibi"
+                        },
+                        {
+                            "name": "Ait Amira"
+                        },
+                        {
+                            "name": "Sidi Boushab"
+                        },
+                        {
+                            "name": "Imi Mqourn"
+                        },
+                        {
+                            "name": "Ait Milk"
+                        },
+                        {
+                            "name": "Ait Mzal"
+                        },
+                        {
+                            "name": "Hilala"
+                        },
+                        {
+                            "name": "Ait Ouadrim"
+                        },
+                        {
+                            "name": "Tassegdelt"
+                        },
+                        {
+                            "name": "Sidi AbdallahEl Bouchouari"
+                        },
+                        {
+                            "name": "Tizi Ntakoucht"
+                        },
+                        {
+                            "name": "Targua Ntouchka"
+                        },
+                        {
+                            "name": "Aouguenz"
+                        },
+                        {
+                            "name": "Tanalt"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Tata",
+                    "COMMUNE": [
+                        {
+                            "name": "Tata (Mun.)"
+                        },
+                        {
+                            "name": "Akka (Mun.)"
+                        },
+                        {
+                            "name": "Foum Zguid (Mun.)"
+                        },
+                        {
+                            "name": "Adis"
+                        },
+                        {
+                            "name": "Fam El Hisn (Mun.)"
+                        },
+                        {
+                            "name": "Ait Ouabelli"
+                        },
+                        {
+                            "name": "Kasbat Sidi Abdellah Ben M'Bar"
+                        },
+                        {
+                            "name": "Tizounine"
+                        },
+                        {
+                            "name": "Tamanarte"
+                        },
+                        {
+                            "name": "Tigzmerte"
+                        },
+                        {
+                            "name": "Tagmout"
+                        },
+                        {
+                            "name": "Tizaghte"
+                        },
+                        {
+                            "name": "Issafen"
+                        },
+                        {
+                            "name": "Aguinane"
+                        },
+                        {
+                            "name": "Ibn Yacoub"
+                        },
+                        {
+                            "name": "Akka Ighane"
+                        },
+                        {
+                            "name": "Tlite"
+                        },
+                        {
+                            "name": "Allougoum"
+                        },
+                        {
+                            "name": "Tissint"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Tiznit",
+                    "COMMUNE": [
+                        {
+                            "name": "Tiznit (Mun.)"
+                        },
+                        {
+                            "name": "Tafraout (Mun.)"
+                        },
+                        {
+                            "name": "Reggada"
+                        },
+                        {
+                            "name": "Ammelne"
+                        },
+                        {
+                            "name": "Tassrirt"
+                        },
+                        {
+                            "name": "Afella Ighir"
+                        },
+                        {
+                            "name": "Ait Ouafqa"
+                        },
+                        {
+                            "name": "Anzi"
+                        },
+                        {
+                            "name": "Tighmi"
+                        },
+                        {
+                            "name": "Arbaa Ait Ahmed"
+                        },
+                        {
+                            "name": "Tizoughrane"
+                        },
+                        {
+                            "name": "Ait Issafen"
+                        },
+                        {
+                            "name": "Ida Ou Gougmar"
+                        },
+                        {
+                            "name": "Sidi Ahmed Ou Moussa"
+                        },
+                        {
+                            "name": "Arbaa Rasmouka"
+                        },
+                        {
+                            "name": "El Maader El Kabir"
+                        },
+                        {
+                            "name": "Sidi Bouabdelli"
+                        },
+                        {
+                            "name": "Bounaamane"
+                        },
+                        {
+                            "name": "Ouijjane"
+                        },
+                        {
+                            "name": "Tnine Aglou"
+                        },
+                        {
+                            "name": "Arbaa Sahel"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Taroudannt",
+                    "COMMUNE": [
+                        {
+                            "name": "Taroudannt (Mun.)"
+                        },
+                        {
+                            "name": "Oulad Teima (Mun.)"
+                        },
+                        {
+                            "name": "El Guerdane (Mun.)"
+                        },
+                        {
+                            "name": "Ait Iaaza (Mun.)"
+                        },
+                        {
+                            "name": "Taliouine (Mun.)"
+                        },
+                        {
+                            "name": "Tafingoult"
+                        },
+                        {
+                            "name": "Aoulouz (Mun.)"
+                        },
+                        {
+                            "name": "Irherm (Mun.)"
+                        },
+                        {
+                            "name": "Oulad Berhil (Mun.)"
+                        },
+                        {
+                            "name": "Sidi Mzal"
+                        },
+                        {
+                            "name": "Ait Abdallah"
+                        },
+                        {
+                            "name": "Toufelaazt"
+                        },
+                        {
+                            "name": "Tabia"
+                        },
+                        {
+                            "name": "Toumliline"
+                        },
+                        {
+                            "name": "Tindine"
+                        },
+                        {
+                            "name": "Sidi Boaal"
+                        },
+                        {
+                            "name": "Amalou"
+                        },
+                        {
+                            "name": "Tataoute"
+                        },
+                        {
+                            "name": "Azaghar N'Irs"
+                        },
+                        {
+                            "name": "Tisfane"
+                        },
+                        {
+                            "name": "Nihit"
+                        },
+                        {
+                            "name": "Oualqadi"
+                        },
+                        {
+                            "name": "Imi N'Tayart"
+                        },
+                        {
+                            "name": "Adar"
+                        },
+                        {
+                            "name": "Argana"
+                        },
+                        {
+                            "name": "Bigoudine"
+                        },
+                        {
+                            "name": "Talmakante"
+                        },
+                        {
+                            "name": "Imilmaiss"
+                        },
+                        {
+                            "name": "Sidi Boumoussa"
+                        },
+                        {
+                            "name": "Issen"
+                        },
+                        {
+                            "name": "Sidi Ahmed Ou Amar"
+                        },
+                        {
+                            "name": "Lagfifat"
+                        },
+                        {
+                            "name": "Sidi Moussa Lhamri"
+                        },
+                        {
+                            "name": "Eddir"
+                        },
+                        {
+                            "name": "Ahl Ramel"
+                        },
+                        {
+                            "name": "Assads"
+                        },
+                        {
+                            "name": "Tidsi Nissendalene"
+                        },
+                        {
+                            "name": "El Koudia El Beida"
+                        },
+                        {
+                            "name": "Lakhnafif"
+                        },
+                        {
+                            "name": "Machraa El Ain"
+                        },
+                        {
+                            "name": "Lamhadi"
+                        },
+                        {
+                            "name": "Ida Ou Moumen"
+                        },
+                        {
+                            "name": "Ahmar Laglalcha"
+                        },
+                        {
+                            "name": "Tamaloukte"
+                        },
+                        {
+                            "name": "Imoulass"
+                        },
+                        {
+                            "name": "Ait Makhlouf"
+                        },
+                        {
+                            "name": "Tafraouten"
+                        },
+                        {
+                            "name": "Zaouia Sidi Tahar"
+                        },
+                        {
+                            "name": "Lamnizla"
+                        },
+                        {
+                            "name": "Sidi Dahmane"
+                        },
+                        {
+                            "name": "Sidi Borja"
+                        },
+                        {
+                            "name": "Freija"
+                        },
+                        {
+                            "name": "Tazemmourt"
+                        },
+                        {
+                            "name": "Bounrar"
+                        },
+                        {
+                            "name": "Sidi Ahmed Ou Abdallah"
+                        },
+                        {
+                            "name": "Ait Igas"
+                        },
+                        {
+                            "name": "Oulad Aissa"
+                        },
+                        {
+                            "name": "Igli"
+                        },
+                        {
+                            "name": "Arazane"
+                        },
+                        {
+                            "name": "Toughmart"
+                        },
+                        {
+                            "name": "Igoudar Mnabha"
+                        },
+                        {
+                            "name": "Ida Ou Gailal"
+                        },
+                        {
+                            "name": "Tinzart"
+                        },
+                        {
+                            "name": "Lamhara"
+                        },
+                        {
+                            "name": "Sidi Abdellah Ou Said"
+                        },
+                        {
+                            "name": "Talgjount"
+                        },
+                        {
+                            "name": "Tizi N'Test"
+                        },
+                        {
+                            "name": "Ouneine"
+                        },
+                        {
+                            "name": "Sidi Ouaaziz"
+                        },
+                        {
+                            "name": "Tigouga"
+                        },
+                        {
+                            "name": "Ida Ougoummad"
+                        },
+                        {
+                            "name": "El Faid"
+                        },
+                        {
+                            "name": "Tisrasse"
+                        },
+                        {
+                            "name": "Ouzioua"
+                        },
+                        {
+                            "name": "Toubkal"
+                        },
+                        {
+                            "name": "Ahl Tifnoute"
+                        },
+                        {
+                            "name": "Iguidi"
+                        },
+                        {
+                            "name": "Taouyalte"
+                        },
+                        {
+                            "name": "Askaouen"
+                        },
+                        {
+                            "name": "Azrar"
+                        },
+                        {
+                            "name": "Agadir Melloul"
+                        },
+                        {
+                            "name": "Tizgzaouine"
+                        },
+                        {
+                            "name": "Sidi Hsaine"
+                        },
+                        {
+                            "name": "Tassousfi"
+                        },
+                        {
+                            "name": "Assaisse"
+                        },
+                        {
+                            "name": "Zagmouzen"
+                        },
+                        {
+                            "name": "Assaki"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Tanger-Tetouan-Al Hoceima",
+            "PROVINCE": [
+                {
+                    "name": "Province: Tétouan",
+                    "COMMUNE": [
+                        {
+                            "name": "Tétouan (Mun.)"
+                        },
+                        {
+                            "name": "Oued Laou (Mun.)"
+                        },
+                        {
+                            "name": "Ain Lahsan"
+                        },
+                        {
+                            "name": "Souk Kdim"
+                        },
+                        {
+                            "name": "Jbel Lahbib"
+                        },
+                        {
+                            "name": "Bni Harchen"
+                        },
+                        {
+                            "name": "Mallalienne"
+                        },
+                        {
+                            "name": "Saddina"
+                        },
+                        {
+                            "name": "Bni Leit"
+                        },
+                        {
+                            "name": "Al Hamra"
+                        },
+                        {
+                            "name": "Al Oued"
+                        },
+                        {
+                            "name": "Oulad Ali Mansour"
+                        },
+                        {
+                            "name": "Sahtryine"
+                        },
+                        {
+                            "name": "Bni Idder"
+                        },
+                        {
+                            "name": "Bghaghza"
+                        },
+                        {
+                            "name": "AL Kharroub"
+                        },
+                        {
+                            "name": "Zaitoune"
+                        },
+                        {
+                            "name": "Azla"
+                        },
+                        {
+                            "name": "Zinat"
+                        },
+                        {
+                            "name": "Dar Bni Karrich"
+                        },
+                        {
+                            "name": "Bni Said"
+                        },
+                        {
+                            "name": "Zaouiat Sidi Kacem"
+                        }
+                    ]
+                },
+                {
+                    "name": "Préfecture: M'Diq-Fnideq",
+                    "COMMUNE": [
+                        {
+                            "name": "Martil (Mun.)"
+                        },
+                        {
+                            "name": "M'Diq (Mun.)"
+                        },
+                        {
+                            "name": "Fnideq (Mun.)"
+                        },
+                        {
+                            "name": "Belyounech"
+                        },
+                        {
+                            "name": "Allyene"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Fahs-Anjra     ",
+                    "COMMUNE": [
+                        {
+                            "name": "Jouamaa"
+                        },
+                        {
+                            "name": "Anjra"
+                        },
+                        {
+                            "name": "Ksar El Majaz"
+                        },
+                        {
+                            "name": "Taghramt"
+                        },
+                        {
+                            "name": "Al Bahraoyine"
+                        },
+                        {
+                            "name": "Ksar Sghir"
+                        },
+                        {
+                            "name": "Malloussa"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Larache",
+                    "COMMUNE": [
+                        {
+                            "name": "Ksar El Kebir (Mun.)"
+                        },
+                        {
+                            "name": "Larache (Mun.)"
+                        },
+                        {
+                            "name": "Laouamra"
+                        },
+                        {
+                            "name": "Sahel"
+                        },
+                        {
+                            "name": "Zouada"
+                        },
+                        {
+                            "name": "Bou Jedyane"
+                        },
+                        {
+                            "name": "Souk L'Qolla"
+                        },
+                        {
+                            "name": "Tatoft"
+                        },
+                        {
+                            "name": "Oulad Ouchih"
+                        },
+                        {
+                            "name": "Ksar Bjir"
+                        },
+                        {
+                            "name": "Souaken"
+                        },
+                        {
+                            "name": "Souk Tolba"
+                        },
+                        {
+                            "name": "Ayacha"
+                        },
+                        {
+                            "name": "Bni Arouss"
+                        },
+                        {
+                            "name": "Tazroute"
+                        },
+                        {
+                            "name": "Bni Garfett"
+                        },
+                        {
+                            "name": "Zaaroura"
+                        },
+                        {
+                            "name": "Rissana Chamalia"
+                        },
+                        {
+                            "name": "Rissana Janoubia"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Chefchaouen",
+                    "COMMUNE": [
+                        {
+                            "name": "Chefchaouen (Mun.)"
+                        },
+                        {
+                            "name": "Bab Berred"
+                        },
+                        {
+                            "name": "Iounane"
+                        },
+                        {
+                            "name": "Tamorot"
+                        },
+                        {
+                            "name": "Bni Ahmed Cherqia"
+                        },
+                        {
+                            "name": "Mansoura"
+                        },
+                        {
+                            "name": "Bni Ahmed Gharbia"
+                        },
+                        {
+                            "name": "Oued Malha"
+                        },
+                        {
+                            "name": "Amtar"
+                        },
+                        {
+                            "name": "Bni Rzine"
+                        },
+                        {
+                            "name": "Bni Smih"
+                        },
+                        {
+                            "name": "M'tioua"
+                        },
+                        {
+                            "name": "Ouaouzgane"
+                        },
+                        {
+                            "name": "Bab Taza"
+                        },
+                        {
+                            "name": "Derdara"
+                        },
+                        {
+                            "name": "Bni Salah"
+                        },
+                        {
+                            "name": "Bni Darkoul"
+                        },
+                        {
+                            "name": "Bni Faghloum"
+                        },
+                        {
+                            "name": "Fifi"
+                        },
+                        {
+                            "name": "Tanaqoub"
+                        },
+                        {
+                            "name": "Laghdir"
+                        },
+                        {
+                            "name": "Bni Selmane"
+                        },
+                        {
+                            "name": "Bni Mansour"
+                        },
+                        {
+                            "name": "Bni Bouzra"
+                        },
+                        {
+                            "name": "Steha"
+                        },
+                        {
+                            "name": "Tizgane"
+                        },
+                        {
+                            "name": "Tassift"
+                        },
+                        {
+                            "name": "Talambote"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Ouezzane",
+                    "COMMUNE": [
+                        {
+                            "name": "Zoumi"
+                        },
+                        {
+                            "name": "Brikcha"
+                        },
+                        {
+                            "name": "Asjen"
+                        },
+                        {
+                            "name": "Moqrisset"
+                        },
+                        {
+                            "name": "Ain Beida"
+                        },
+                        {
+                            "name": "Kalaat Bouqorra"
+                        },
+                        {
+                            "name": "Ouezzane (Mun.)"
+                        },
+                        {
+                            "name": "Mzefroune"
+                        },
+                        {
+                            "name": "Masmouda"
+                        },
+                        {
+                            "name": "Bni Quolla"
+                        },
+                        {
+                            "name": "Sidi Redouane"
+                        },
+                        {
+                            "name": "Ounnana"
+                        },
+                        {
+                            "name": "Lamjaara"
+                        },
+                        {
+                            "name": "Teroual"
+                        },
+                        {
+                            "name": "Zghira"
+                        },
+                        {
+                            "name": "Sidi Ahmed Cherif"
+                        },
+                        {
+                            "name": "Sidi Bousber"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Al Hoceima",
+                    "COMMUNE": [
+                        {
+                            "name": "Al Hoceima (Mun.)"
+                        },
+                        {
+                            "name": "Bni Bouayach (Mun.)"
+                        },
+                        {
+                            "name": "Imzouren (Mun.)"
+                        },
+                        {
+                            "name": "Targuist (Mun.)"
+                        },
+                        {
+                            "name": "Ajdir (Mun.)"
+                        },
+                        {
+                            "name": "Bni Boufrah"
+                        },
+                        {
+                            "name": "Senada"
+                        },
+                        {
+                            "name": "Bni Gmil Maksouline"
+                        },
+                        {
+                            "name": "Bni Gmil"
+                        },
+                        {
+                            "name": "Chakrane"
+                        },
+                        {
+                            "name": "Arbaa Taourirt"
+                        },
+                        {
+                            "name": "Tifarouine"
+                        },
+                        {
+                            "name": "Nekkour"
+                        },
+                        {
+                            "name": "Bni Abdallah"
+                        },
+                        {
+                            "name": "Zaouiat Sidi Abdelkader"
+                        },
+                        {
+                            "name": "Bni Hadifa"
+                        },
+                        {
+                            "name": "Ait Youssef Ou Ali"
+                        },
+                        {
+                            "name": "Imrabten"
+                        },
+                        {
+                            "name": "Louta"
+                        },
+                        {
+                            "name": "Izemmouren"
+                        },
+                        {
+                            "name": "Rouadi"
+                        },
+                        {
+                            "name": "Ait Kamra"
+                        },
+                        {
+                            "name": "Sidi Bouzineb"
+                        },
+                        {
+                            "name": "Bni Ammart"
+                        },
+                        {
+                            "name": "Abdelghaya Souahel"
+                        },
+                        {
+                            "name": "Moulay Ahmed Cherif"
+                        },
+                        {
+                            "name": "Issaguen"
+                        },
+                        {
+                            "name": "Tamsaout"
+                        },
+                        {
+                            "name": "Ketama"
+                        },
+                        {
+                            "name": "Bni Bouchibet"
+                        },
+                        {
+                            "name": "Bni Ahmed Imoukzan"
+                        },
+                        {
+                            "name": "Taghzout"
+                        },
+                        {
+                            "name": "Sidi Boutmim"
+                        },
+                        {
+                            "name": "Zarkt"
+                        },
+                        {
+                            "name": "Bni Bounsar"
+                        },
+                        {
+                            "name": "Bni Bchir"
+                        }
+                    ]
+                },
+                {
+                    "name": "Préfecture: Tanger-Assila",
+                    "COMMUNE": [
+                        {
+                            "name": "Tanger-Médina (Arrond.)"
+                        },
+                        {
+                            "name": "Charf-Mghogha (Arrond.)"
+                        },
+                        {
+                            "name": "Gueznaia (Mun.)"
+                        },
+                        {
+                            "name": "Charf-Souani (Arrond.)"
+                        },
+                        {
+                            "name": "Bni Makada (Arrond.)"
+                        },
+                        {
+                            "name": "Assilah (Mun.)"
+                        },
+                        {
+                            "name": "Had Al Gharbia"
+                        },
+                        {
+                            "name": "Sidi Lyamani"
+                        },
+                        {
+                            "name": "HJAR ENNHAL"
+                        },
+                        {
+                            "name": "Dar Chaoui"
+                        },
+                        {
+                            "name": "Al Manzla"
+                        },
+                        {
+                            "name": "Sebt Azzinate"
+                        },
+                        {
+                            "name": "Aquouass Briech"
+                        },
+                        {
+                            "name": "Sahel Chamali"
+                        },
+                        {
+                            "name": "Laaouama"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Laayoune-Sakia El Hamra",
+            "PROVINCE": [
+                {
+                    "name": "Province: Laâyoune",
+                    "COMMUNE": [
+                        {
+                            "name": "Laayoune (Mun.)"
+                        },
+                        {
+                            "name": "El Marsa (Mun.)"
+                        },
+                        {
+                            "name": "Dcheira"
+                        },
+                        {
+                            "name": "Foum El Oued"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Tarfaya",
+                    "COMMUNE": [
+                        {
+                            "name": "Akhfennir"
+                        },
+                        {
+                            "name": "Tarfaya (Mun.)"
+                        },
+                        {
+                            "name": "Daoura"
+                        },
+                        {
+                            "name": "Tah"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Boujdour",
+                    "COMMUNE": [
+                        {
+                            "name": "Boujdour (Mun.)"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Es-Semara",
+                    "COMMUNE": [
+                        {
+                            "name": "Es-semara (Mun.)"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Béni Mellal-Khénifra",
+            "PROVINCE": [
+                {
+                    "name": "Province: Azilal",
+                    "COMMUNE": [
+                        {
+                            "name": "Azilal (Mun.)"
+                        },
+                        {
+                            "name": "Demnate (Mun.)"
+                        },
+                        {
+                            "name": "Bzou"
+                        },
+                        {
+                            "name": "Foum Jemaa"
+                        },
+                        {
+                            "name": "Afourar"
+                        },
+                        {
+                            "name": "Ouaouizeght"
+                        },
+                        {
+                            "name": "Anzou"
+                        },
+                        {
+                            "name": "Ait M'Hamed"
+                        },
+                        {
+                            "name": "Ait Abbas"
+                        },
+                        {
+                            "name": "Tabant"
+                        },
+                        {
+                            "name": "Ait Bou Oulli"
+                        },
+                        {
+                            "name": "Agoudi N'Lkhair"
+                        },
+                        {
+                            "name": "Tamda Noumercid"
+                        },
+                        {
+                            "name": "Zaouiat Ahansal"
+                        },
+                        {
+                            "name": "Tisqi"
+                        },
+                        {
+                            "name": "Taounza"
+                        },
+                        {
+                            "name": "Moulay Aissa Ben Driss"
+                        },
+                        {
+                            "name": "Bni Ayat"
+                        },
+                        {
+                            "name": "Rfala"
+                        },
+                        {
+                            "name": "Bni Hassane"
+                        },
+                        {
+                            "name": "Tabia"
+                        },
+                        {
+                            "name": "Ait Taguella"
+                        },
+                        {
+                            "name": "Tanant"
+                        },
+                        {
+                            "name": "Ait Blal"
+                        },
+                        {
+                            "name": "Ouaoula"
+                        },
+                        {
+                            "name": "Ait Majden"
+                        },
+                        {
+                            "name": "Sidi Boulkhalf"
+                        },
+                        {
+                            "name": "Tifni"
+                        },
+                        {
+                            "name": "Imlil"
+                        },
+                        {
+                            "name": "Ait Oumdis"
+                        },
+                        {
+                            "name": "Ait Tamlil"
+                        },
+                        {
+                            "name": "Tidili Fetouaka"
+                        },
+                        {
+                            "name": "Sidi Yacoub"
+                        },
+                        {
+                            "name": "Timoulilt"
+                        },
+                        {
+                            "name": "Bin El Ouidane"
+                        },
+                        {
+                            "name": "Isseksi"
+                        },
+                        {
+                            "name": "Ait Ouaarda"
+                        },
+                        {
+                            "name": "Tiffert N'Ait Hamza"
+                        },
+                        {
+                            "name": "Ait Ouqabli"
+                        },
+                        {
+                            "name": "Tagleft"
+                        },
+                        {
+                            "name": "Tabaroucht"
+                        },
+                        {
+                            "name": "Ait Mazigh"
+                        },
+                        {
+                            "name": "Tilougguite"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Béni Mellal",
+                    "COMMUNE": [
+                        {
+                            "name": "Béni Mellal (Mun.)"
+                        },
+                        {
+                            "name": "Kasba Tadla (Mun.)"
+                        },
+                        {
+                            "name": "Zaouiat Cheikh (Mun.)"
+                        },
+                        {
+                            "name": "El Ksiba (Mun.)"
+                        },
+                        {
+                            "name": "Ouled Gnaou"
+                        },
+                        {
+                            "name": "Ouled M'Barek"
+                        },
+                        {
+                            "name": "Ouled Yaich"
+                        },
+                        {
+                            "name": "Sidi Jaber"
+                        },
+                        {
+                            "name": "Ouled Youssef"
+                        },
+                        {
+                            "name": "Foum Oudi"
+                        },
+                        {
+                            "name": "Aghbala"
+                        },
+                        {
+                            "name": "Tizi N'Isly"
+                        },
+                        {
+                            "name": "Boutferda"
+                        },
+                        {
+                            "name": "Naour"
+                        },
+                        {
+                            "name": "Dir El Ksiba"
+                        },
+                        {
+                            "name": "Foum El Anceur"
+                        },
+                        {
+                            "name": "Tanougha"
+                        },
+                        {
+                            "name": "Taghzirt"
+                        },
+                        {
+                            "name": "Ait Oum El Bekht"
+                        },
+                        {
+                            "name": "Guettaya"
+                        },
+                        {
+                            "name": "Semguet"
+                        },
+                        {
+                            "name": "Ouled Said L'Oued"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Fquih Ben Salah",
+                    "COMMUNE": [
+                        {
+                            "name": "Souk Sebt Ouled Nemma (Mun.)"
+                        },
+                        {
+                            "name": "Fquih Ben Salah (Mun.)"
+                        },
+                        {
+                            "name": "Ouled Ayad (Mun.)"
+                        },
+                        {
+                            "name": "Dar Ould Zidouh"
+                        },
+                        {
+                            "name": "Had Boumoussa"
+                        },
+                        {
+                            "name": "Sidi Hammadi"
+                        },
+                        {
+                            "name": "Ouled Bourahmoune"
+                        },
+                        {
+                            "name": "Sidi Aissa Ben Ali"
+                        },
+                        {
+                            "name": "Ouled Zmam"
+                        },
+                        {
+                            "name": "Hel Merbaa"
+                        },
+                        {
+                            "name": "Krifate"
+                        },
+                        {
+                            "name": "Bradia"
+                        },
+                        {
+                            "name": "Ouled Nacer"
+                        },
+                        {
+                            "name": "Khalfia"
+                        },
+                        {
+                            "name": "Bni Chegdale"
+                        },
+                        {
+                            "name": "Bni Oukil"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Khénifra",
+                    "COMMUNE": [
+                        {
+                            "name": "Khenifra (Mun.)"
+                        },
+                        {
+                            "name": "M'Rirt (Mun.)"
+                        },
+                        {
+                            "name": "Ait Ishaq"
+                        },
+                        {
+                            "name": "El Kbab"
+                        },
+                        {
+                            "name": "Tighassaline"
+                        },
+                        {
+                            "name": "Aguelmous"
+                        },
+                        {
+                            "name": "Sidi Lamine"
+                        },
+                        {
+                            "name": "Moulay Bouazza"
+                        },
+                        {
+                            "name": "El Hammam"
+                        },
+                        {
+                            "name": "Ouaoumana"
+                        },
+                        {
+                            "name": "Sidi Yahya Ou Saad"
+                        },
+                        {
+                            "name": "Kerrouchen"
+                        },
+                        {
+                            "name": "Sidi Hcine"
+                        },
+                        {
+                            "name": "El Borj"
+                        },
+                        {
+                            "name": "Aguelmam Azegza"
+                        },
+                        {
+                            "name": "Lehri"
+                        },
+                        {
+                            "name": "Moha Ou Hammou Zayani"
+                        },
+                        {
+                            "name": "Had Bouhssoussen"
+                        },
+                        {
+                            "name": "Sebt Ait Rahou"
+                        },
+                        {
+                            "name": "Oum Rabia"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Khouribga",
+                    "COMMUNE": [
+                        {
+                            "name": "Khouribga (Mun.)"
+                        },
+                        {
+                            "name": "Oued Zem (Mun.)"
+                        },
+                        {
+                            "name": "Bejaad (Mun.)"
+                        },
+                        {
+                            "name": "Boujniba (Mun.)"
+                        },
+                        {
+                            "name": "Hattane (Mun.)"
+                        },
+                        {
+                            "name": "Bulanouare"
+                        },
+                        {
+                            "name": "M'Fassis"
+                        },
+                        {
+                            "name": "Lagfaf"
+                        },
+                        {
+                            "name": "Rouached"
+                        },
+                        {
+                            "name": "Chougrane"
+                        },
+                        {
+                            "name": "Tachraft"
+                        },
+                        {
+                            "name": "Ain Kaicher"
+                        },
+                        {
+                            "name": "Bni Bataou"
+                        },
+                        {
+                            "name": "Boukhrisse"
+                        },
+                        {
+                            "name": "Bni Zrantel"
+                        },
+                        {
+                            "name": "Oulad Gouaouch"
+                        },
+                        {
+                            "name": "Bni Ykhlef"
+                        },
+                        {
+                            "name": "Bir Mezoui"
+                        },
+                        {
+                            "name": "El Foqra"
+                        },
+                        {
+                            "name": "Oulad Abdoune"
+                        },
+                        {
+                            "name": "Oulad Azzouz"
+                        },
+                        {
+                            "name": "Ait Ammar"
+                        },
+                        {
+                            "name": "Oulad Ftata"
+                        },
+                        {
+                            "name": "Lagnadiz"
+                        },
+                        {
+                            "name": "Oulad Boughadi"
+                        },
+                        {
+                            "name": "Bni Smir"
+                        },
+                        {
+                            "name": "Kasbat Troch"
+                        },
+                        {
+                            "name": "Maadna"
+                        },
+                        {
+                            "name": "Oulad Fennane"
+                        },
+                        {
+                            "name": "Braksa"
+                        },
+                        {
+                            "name": "Oulad Aissa"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Drâa-Tafilalet",
+            "PROVINCE": [
+                {
+                    "name": "Province: Errachidia",
+                    "COMMUNE": [
+                        {
+                            "name": "Aarab Sebbah Gheris"
+                        },
+                        {
+                            "name": "Aarab Sebbah Ziz"
+                        },
+                        {
+                            "name": "Aghbalou N'Kerdous"
+                        },
+                        {
+                            "name": "Amellagou"
+                        },
+                        {
+                            "name": "Aoufous"
+                        },
+                        {
+                            "name": "Arfoud (Mun.)"
+                        },
+                        {
+                            "name": "Bni M'Hamed-Sijelmassa"
+                        },
+                        {
+                            "name": "Boudnib (Mun.)"
+                        },
+                        {
+                            "name": "Chorfa M'Daghra"
+                        },
+                        {
+                            "name": "Errachidia (Mun.)"
+                        },
+                        {
+                            "name": "Er-rissani"
+                        },
+                        {
+                            "name": "Er-rteb"
+                        },
+                        {
+                            "name": "Es-sfalat"
+                        },
+                        {
+                            "name": "Es-sifa"
+                        },
+                        {
+                            "name": "Et-taous"
+                        },
+                        {
+                            "name": "Ferkla El Oulia"
+                        },
+                        {
+                            "name": "Ferkla Es-soufla"
+                        },
+                        {
+                            "name": "Fezna"
+                        },
+                        {
+                            "name": "Gheris El Ouloui"
+                        },
+                        {
+                            "name": "Gheris Es-soufli"
+                        },
+                        {
+                            "name": "Goulmima (Mun.)"
+                        },
+                        {
+                            "name": "Jorf (Mun.)"
+                        },
+                        {
+                            "name": "Lkheng"
+                        },
+                        {
+                            "name": "Melaab"
+                        },
+                        {
+                            "name": "Moulay Ali Cherif (Mun.)"
+                        },
+                        {
+                            "name": "Oued Naam"
+                        },
+                        {
+                            "name": "Sidi Ali"
+                        },
+                        {
+                            "name": "Tadighoust"
+                        },
+                        {
+                            "name": "Tinejdad (Mun.)"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Midelt",
+                    "COMMUNE": [
+                        {
+                            "name": "Aghbalou"
+                        },
+                        {
+                            "name": "Agoudim"
+                        },
+                        {
+                            "name": "Ait Ayach"
+                        },
+                        {
+                            "name": "Ait Ben Yacoub"
+                        },
+                        {
+                            "name": "Ait Izdeg"
+                        },
+                        {
+                            "name": "Ait Yahya"
+                        },
+                        {
+                            "name": "Amersid"
+                        },
+                        {
+                            "name": "Amouguer"
+                        },
+                        {
+                            "name": "Anemzi"
+                        },
+                        {
+                            "name": "Bou Azmou"
+                        },
+                        {
+                            "name": "Boumia"
+                        },
+                        {
+                            "name": "En-nzala"
+                        },
+                        {
+                            "name": "Er-rich (Mun.)"
+                        },
+                        {
+                            "name": "Gourrama"
+                        },
+                        {
+                            "name": "Guers Tiaallaline"
+                        },
+                        {
+                            "name": "Guir"
+                        },
+                        {
+                            "name": "Imilchil"
+                        },
+                        {
+                            "name": "Itzer"
+                        },
+                        {
+                            "name": "Mibladen"
+                        },
+                        {
+                            "name": "Midelt (Mun.)"
+                        },
+                        {
+                            "name": "M'Zizel"
+                        },
+                        {
+                            "name": "Outerbat"
+                        },
+                        {
+                            "name": "Sidi Aayad"
+                        },
+                        {
+                            "name": "Sidi Yahya Ou Youssef"
+                        },
+                        {
+                            "name": "Tanourdi"
+                        },
+                        {
+                            "name": "Tizi N'Ghachou"
+                        },
+                        {
+                            "name": "Tounfite"
+                        },
+                        {
+                            "name": "Zaida"
+                        },
+                        {
+                            "name": "Zaouiat Sidi Hamza"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Ouarzazate",
+                    "COMMUNE": [
+                        {
+                            "name": "Ait Zineb"
+                        },
+                        {
+                            "name": "Amerzgane"
+                        },
+                        {
+                            "name": "Ghassate"
+                        },
+                        {
+                            "name": "Idelsane"
+                        },
+                        {
+                            "name": "Ighrem N'Ougdal"
+                        },
+                        {
+                            "name": "Imi N'Oulaoune"
+                        },
+                        {
+                            "name": "Iznaguen"
+                        },
+                        {
+                            "name": "Khouzama"
+                        },
+                        {
+                            "name": "Ouarzazate (Mun.)"
+                        },
+                        {
+                            "name": "Ouisselsate"
+                        },
+                        {
+                            "name": "Siroua"
+                        },
+                        {
+                            "name": "Skoura Ahl El Oust"
+                        },
+                        {
+                            "name": "Tarmigt"
+                        },
+                        {
+                            "name": "Taznakht (Mun.)"
+                        },
+                        {
+                            "name": "Telouet"
+                        },
+                        {
+                            "name": "Tidli"
+                        },
+                        {
+                            "name": "Toundoute"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Tinghir",
+                    "COMMUNE": [
+                        {
+                            "name": "Ait El Farsi"
+                        },
+                        {
+                            "name": "Ait Hani"
+                        },
+                        {
+                            "name": "Ait Ouassif"
+                        },
+                        {
+                            "name": "Ait Sedrate JbelEl Oulia"
+                        },
+                        {
+                            "name": "Ait Sedrate JbelEL Soufla"
+                        },
+                        {
+                            "name": "Ait Sedrate Sahl Charkia"
+                        },
+                        {
+                            "name": "Ait Sedrate Sahl El Gharbia"
+                        },
+                        {
+                            "name": "Ait Youl"
+                        },
+                        {
+                            "name": "Alnif"
+                        },
+                        {
+                            "name": "Assoul"
+                        },
+                        {
+                            "name": "Boumalne Dades (Mun.)"
+                        },
+                        {
+                            "name": "H'Ssyia"
+                        },
+                        {
+                            "name": "Ighil N'Oumgoun"
+                        },
+                        {
+                            "name": "Ikniouen"
+                        },
+                        {
+                            "name": "Imider"
+                        },
+                        {
+                            "name": "Kalaat M'Gouna (Mun.)"
+                        },
+                        {
+                            "name": "M'Semrir"
+                        },
+                        {
+                            "name": "M'Ssici"
+                        },
+                        {
+                            "name": "Ouaklim"
+                        },
+                        {
+                            "name": "Souk Lakhmis Dades"
+                        },
+                        {
+                            "name": "Taghzoute N'Ait Atta"
+                        },
+                        {
+                            "name": "Tilmi"
+                        },
+                        {
+                            "name": "Tinghir (Mun.)"
+                        },
+                        {
+                            "name": "Toudgha El Oulia"
+                        },
+                        {
+                            "name": "Toudgha Essoufla"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Zagora",
+                    "COMMUNE": [
+                        {
+                            "name": "Afella N'Dra"
+                        },
+                        {
+                            "name": "Afra"
+                        },
+                        {
+                            "name": "Agdz (Mun.)"
+                        },
+                        {
+                            "name": "Ait Boudaoud"
+                        },
+                        {
+                            "name": "Ait Ouallal"
+                        },
+                        {
+                            "name": "Bleida"
+                        },
+                        {
+                            "name": "Bni Zoli"
+                        },
+                        {
+                            "name": "Bouzeroual"
+                        },
+                        {
+                            "name": "Errouha"
+                        },
+                        {
+                            "name": "Fezouata"
+                        },
+                        {
+                            "name": "Ktaoua"
+                        },
+                        {
+                            "name": "Mezguita"
+                        },
+                        {
+                            "name": "M'Hamid El Ghizlane"
+                        },
+                        {
+                            "name": "N'Kob"
+                        },
+                        {
+                            "name": "Oulad Yahia Lagraire"
+                        },
+                        {
+                            "name": "Taftechna"
+                        },
+                        {
+                            "name": "Taghbalte"
+                        },
+                        {
+                            "name": "Tagounite"
+                        },
+                        {
+                            "name": "Tamegroute"
+                        },
+                        {
+                            "name": "Tamezmoute"
+                        },
+                        {
+                            "name": "Tansifte"
+                        },
+                        {
+                            "name": "Tazarine"
+                        },
+                        {
+                            "name": "Ternata"
+                        },
+                        {
+                            "name": "Tinzouline"
+                        },
+                        {
+                            "name": "Zagora (Mun.)"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Eddakhla-Oued Eddahab",
+            "PROVINCE": [
+                {
+                    "name": "Province: Oued Ed-Dahab",
+                    "COMMUNE": [
+                        {
+                            "name": "Dakhla (Mun.)"
+                        },
+                        {
+                            "name": "El Argoub"
+                        },
+                        {
+                            "name": "Bir Anzarane"
+                        }
+                    ]
+                },
+                {
+                    "name": "Province: Aousserd",
+                    "COMMUNE": [
+                        {
+                            "name": "Aousserd"
+                        },
+                        {
+                            "name": "Bir Gandouz"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+};
+
+function initDropdowns() {
+  var regionsSelect = document.getElementById('regions');
+  jsonData.REGION.forEach(function(region) {
+    var option = document.createElement('option');
+    option.value = region.name;
+    option.text = region.name;
+    regionsSelect.appendChild(option);
+  });
+}
+
+function updateProvinces(regionName) {
+  var provincesSelect = document.getElementById('provinces');
+  var communesSelect = document.getElementById('communes');
+  provincesSelect.innerHTML = '';
+  communesSelect.innerHTML = '';
+
+  var selectedRegion = jsonData.REGION.find(function(region) {
+    return region.name === regionName;
+  });
+
+  if (selectedRegion) {
+    selectedRegion.PROVINCE.forEach(function(province) {
+      var option = document.createElement('option');
+      option.value = province.name;
+      option.text = province.name;
+      provincesSelect.appendChild(option);
+    });
+  }
+
+  // Mettre à jour les communes pour la première province sélectionnée
+  updateCommunes(provincesSelect.options[0].value);
+}
+
+function updateCommunes(provinceName) {
+  var communesSelect = document.getElementById('communes');
+  communesSelect.innerHTML = '';
+
+  var selectedProvince = jsonData.REGION.flatMap(function(region) {
+    return region.PROVINCE;
+  }).find(function(province) {
+    return province.name === provinceName;
+  });
+
+  if (selectedProvince) {
+    selectedProvince.COMMUNE.forEach(function(commune) {
+      var option = document.createElement('option');
+      option.value = commune.name;
+      option.text = commune.name;
+      communesSelect.appendChild(option);
+    });
+  }
+}
+
+// Ajouter un écouteur d'événements pour initialiser les listes déroulantes au chargement de la page
+window.addEventListener('load', initDropdowns);
+</script>
+<style>
+   body {
+    font-family: Arial, sans-serif;
+  }
+  
+  form {
+    margin: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  select {
+    width: 200px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+    </style>
+</head>
+<body>
+    <form>
+<!-- Liste déroulante pour les régions -->
+<label for="region">Région:</label><br>
+
+<select id="regions" onchange="updateProvinces(this.value);">
+  <option value="">Sélectionnez une région</option>
+</select>
+<br><br>
+<!-- Liste déroulante pour les provinces -->
+<label for="provinces">provinces:</label><br>
+<select id="provinces" onchange="updateCommunes(this.value);">
+  <option value="">Sélectionnez une province</option>
+</select>
+<br><br>
+<!-- Liste déroulante pour les communes -->
+<label for="communes">communes:</label><br>
+<select id="communes">
+  <option value="">Sélectionnez une commune</option>
+</select>
+</form>
+</body>
+</html>
