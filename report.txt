@@ -1,0 +1,18 @@
+Statistics Report
+=================
+Percentage of Notes > 10: 93.55%
+Percentage of Notes < 10: 3.23%
+Average Note: 13.94
+Standard Deviation of Notes: 2.38
+Minimum Note: 9.00
+Maximum Note: 19.00
+
+Detailed Report
+===============
+Total Entries: 31
+Total Questions: 606
+Total Correct: 432
+Total Wrong: 155
+Total Empty: 33
+Average Percentage: 69.6774193548387
+Average Note: 13.935483870967742
